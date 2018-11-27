@@ -79,13 +79,20 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="promise学习笔记一 JS异步： 1、 回调函数 2、事件发布/订阅模式（观察者模式） 3、使用Promise对象 4、使用Generator函数 5、使用async函数  …等等 Promise 是异步编程的一种解决方案。解决了代码缩进的金字塔问题 二  实现方式： 用 new Promise 方法创建promise对象 用.then 或 .catch 添加promise对象的处理函数 基本">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Promise实践">
+<meta property="og:url" content="http://yoursite.com/2018/11/27/promise实践分享/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="promise学习笔记一 JS异步： 1、 回调函数 2、事件发布/订阅模式（观察者模式） 3、使用Promise对象 4、使用Generator函数 5、使用async函数  …等等 Promise 是异步编程的一种解决方案。解决了代码缩进的金字塔问题 二  实现方式： 用 new Promise 方法创建promise对象 用.then 或 .catch 添加promise对象的处理函数 基本">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://liubin.org/promises-book/Ch1_WhatsPromises/img/promise-states.png">
+<meta property="og:image" content="http://imweb-io-1251594266.file.myqcloud.com/Fm7j8HLbuQlAZEwUG8G7imBLRJrh">
+<meta property="og:updated_time" content="2018-11-27T09:29:54.503Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Promise实践">
+<meta name="twitter:description" content="promise学习笔记一 JS异步： 1、 回调函数 2、事件发布/订阅模式（观察者模式） 3、使用Promise对象 4、使用Generator函数 5、使用async函数  …等等 Promise 是异步编程的一种解决方案。解决了代码缩进的金字塔问题 二  实现方式： 用 new Promise 方法创建promise对象 用.then 或 .catch 添加promise对象的处理函数 基本">
+<meta name="twitter:image" content="http://liubin.org/promises-book/Ch1_WhatsPromises/img/promise-states.png">
 
 
 
@@ -115,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/27/promise实践分享/"/>
 
 
 
 
 
-  <title>Hexo</title>
+  <title>Promise实践 | Hexo</title>
   
 
 
@@ -140,8 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -214,9 +220,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -246,9 +252,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/27/promise实践分享/" itemprop="url">Promise实践</a></h1>
+          <h1 class="post-title" itemprop="name headline">Promise实践</h1>
         
 
         <div class="post-meta">
@@ -298,9 +302,7 @@
       
 
       
-        
-          
-            <h2 id="promise学习笔记"><a href="#promise学习笔记" class="headerlink" title="promise学习笔记"></a>promise学习笔记</h2><p><strong>一 JS异步：</strong></p>
+        <h2 id="promise学习笔记"><a href="#promise学习笔记" class="headerlink" title="promise学习笔记"></a>promise学习笔记</h2><p><strong>一 JS异步：</strong></p>
 <p>1、 回调函数</p>
 <p>2、事件发布/订阅模式（观察者模式）</p>
 <p>3、使用Promise对象</p>
@@ -571,8 +573,6 @@ winnerPromise.then(function(result){
 }
 p.then(res=&gt;{console.log(res)})
 </code></pre>
-          
-        
       
     </div>
     
@@ -589,154 +589,28 @@ p.then(res=&gt;{console.log(res)})
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/24/利用VW，Rem实现前端页面的自适应方案/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/24/利用VW，Rem实现前端页面的自适应方案/" itemprop="url">利用VW，Rem实现前端页面的自适应方案</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-24T14:52:48+08:00">
-                2018-10-24
-              </time>
+              <a href="/2018/10/24/利用VW，Rem实现前端页面的自适应方案/" rel="next" title="利用VW，Rem实现前端页面的自适应方案">
+                <i class="fa fa-chevron-left"></i> 利用VW，Rem实现前端页面的自适应方案
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>==题记==：目前增长团队手机端适配方案不统一，应对WAP页面的需求开发，怎么解决？标准统一对于后续开发迭代很关键，所以基于这个出发点前端团队提出需要制定相关技术标准方案。其中今天说到的关于移动端适配就是我们开始的第一步。</p>
-<hr>
-<h4 id="技术背景"><a href="#技术背景" class="headerlink" title="技术背景"></a>技术背景</h4><ul>
-<li><p>1.响应式web设计能做什么？</p>
-<p>  让一个网站同时适配多种设备和多个屏幕，可以让网站的布局和功能随用户的使用环境（屏幕大小、输入方式、设备/浏览器能力）而变化。</p>
-</li>
-<li><p>2.什么是viewport？</p>
-<p>  浏览器中用于呈现网页的区域叫视口（viewport）视口通常并不等于屏幕大小，特别是可以缩放浏览器窗口的情况下。为了解决前面的问题，可以在网页的<head>中添加下面这行代码：</head></p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui&quot;&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>3.Rem,Vw具体指的是什么？</p>
-<p>  rem的——“font size of the root element”<br>  viewport宽度有关，100%视口宽度 = 100vw  </p>
-<p>  [vw兼容性]</p>
-</li>
-</ul>
-<h4 id="技术方案"><a href="#技术方案" class="headerlink" title="技术方案"></a>技术方案</h4><p>==利用Rem Vw 实现响应式布局的基准==</p>
-<p>++实现方案：++</p>
-<p><strong>利用less的函数方式实现相关转换</strong><br>假定对应的设计稿750px宽的，100vw,那么量出来的宽度直接用less中定义的函数解决就好：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@clientW:750;</span><br><span class="line">.pxtovw(@value) &#123;</span><br><span class="line">    @pxtovw:100vw*@value/@clientW;</span><br><span class="line">    @pxtorem:@value/100rem;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//具体使用方式</span><br><span class="line">.blk_main&#123;</span><br><span class="line">    .pxtovw(750);</span><br><span class="line">     min-width:@pxtorem;</span><br><span class="line">     min-width:@pxtovw;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>纯css3属性实现无需编译</strong> (基于rem的 设计稿750宽，假定字体大小100px)</p>
-<p>1.通用方案 rem  js实现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">(function(doc, win,baseDesignValue) &#123;</span><br><span class="line">        var Dpr = 1,</span><br><span class="line">            uAgent = window.navigator.userAgent;</span><br><span class="line">        var isIOS = uAgent.match(/iphone/i);</span><br><span class="line">        var is2345 = uAgent.match(/Mb2345/i);</span><br><span class="line">        var ishaosou = uAgent.match(/mso_app/i);</span><br><span class="line">        var isSogou = uAgent.match(/sogoumobilebrowser/ig);</span><br><span class="line">        var isLiebao = uAgent.match(/liebaofast/i);</span><br><span class="line">        var isGnbr = uAgent.match(/GNBR/i);</span><br><span class="line"></span><br><span class="line">        function resizeRoot() &#123;</span><br><span class="line">            var wWidth = (screen.width &gt; 0) ? (window.innerWidth &gt;= screen.width || window.innerWidth == 0) ? screen.width : window.innerWidth : window.innerWidth,</span><br><span class="line">                wDpr, wFsize;</span><br><span class="line">            var wHeight = (screen.height &gt; 0) ? (window.innerHeight &gt;= screen.height || window.innerHeight == 0) ? screen.height : window.innerHeight : window.innerHeight;</span><br><span class="line">            if (window.devicePixelRatio) &#123;</span><br><span class="line">                wDpr = window.devicePixelRatio;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                wDpr = isIOS ? wWidth &gt; 818 ? 3 : wWidth &gt; 480 ? 2 : 1 : 1;</span><br><span class="line">            &#125;</span><br><span class="line">            if (isIOS) &#123;</span><br><span class="line">                wWidth = screen.width;</span><br><span class="line">                wHeight = screen.height;</span><br><span class="line">            &#125;</span><br><span class="line">           </span><br><span class="line">            if (wWidth &gt; wHeight) &#123;</span><br><span class="line">                wWidth = wHeight;</span><br><span class="line">            &#125;</span><br><span class="line">            wFsize = wWidth &gt; 540 ? 72 : wWidth*100 / baseDesignValue;</span><br><span class="line">            wFsize = wFsize &gt; 32 ? wFsize : 32;</span><br><span class="line">            window.screenWidth_ = wWidth;</span><br><span class="line">            if (is2345 || ishaosou || isSogou || isLiebao || isGnbr) &#123; //这里有个刚调用系统浏览器时候的bug，需要一点延迟来获取</span><br><span class="line">                setTimeout(function() &#123;</span><br><span class="line">                    wWidth = (screen.width &gt; 0) ? (window.innerWidth &gt;= screen.width || window.innerWidth == 0) ? screen.width : window.innerWidth : window.innerWidth;</span><br><span class="line">                    wHeight = (screen.height &gt; 0) ? (window.innerHeight &gt;= screen.height || window.innerHeight == 0) ? screen.height : window.innerHeight : window.innerHeight;</span><br><span class="line">                    wFsize = wWidth &gt; 540 ? 72 : wWidth / 7.5;</span><br><span class="line">                    wFsize = wFsize &gt; 32 ? wFsize : 32;</span><br><span class="line">                    document.getElementsByTagName(&apos;html&apos;)[0].style.fontSize = wFsize + &apos;px&apos;;</span><br><span class="line">                &#125;, 500);</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                document.getElementsByTagName(&apos;html&apos;)[0].style.fontSize = wFsize + &apos;px&apos;;</span><br><span class="line">            &#125;</span><br><span class="line">            // alert(&quot;fz=&quot;+wFsize+&quot;;dpr=&quot;+window.devicePixelRatio+&quot;;UA=&quot;+uAgent+&quot;;width=&quot;+wWidth+&quot;;sw=&quot;+screen.width+&quot;;wiw=&quot;+window.innerWidth+&quot;;wsw=&quot;+window.screen.width+window.screen.availWidth);</span><br><span class="line">        &#125;</span><br><span class="line">        if (!doc.documentElement.addEventListener) return;</span><br><span class="line">        doc.addEventListener(&apos;DOMContentLoaded&apos;, resizeRoot, false);</span><br><span class="line">        resizeRoot();</span><br><span class="line">    &#125;)(document, window,750);</span><br></pre></td></tr></table></figure></p>
-<p>2.激进的方案：rem + vw + 1000px宽设计稿</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">@clientW:1000;</span><br><span class="line">.pxtovw(@value) &#123;</span><br><span class="line">    @pxtovw:100vw*@value/@clientW; //@value/10</span><br><span class="line">    @pxtorem:@value/100rem;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">html &#123;</span><br><span class="line">    height: 100%;</span><br><span class="line">    font-size: 10vw; //100vw *100px/1000px</span><br><span class="line">    line-height: 1;</span><br><span class="line">    max-width: 750px;</span><br><span class="line">    overflow-x: hidden;</span><br><span class="line">    font-family: Microsoft YaHei, STHeiti, Helvetica, Arial, sans-serif!important</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.blk-main&#123;</span><br><span class="line">    .pxtovw(640);</span><br><span class="line">     min-width:@pxtorem;</span><br><span class="line">     min-width:@pxtovw;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">最终??</span><br><span class="line"></span><br><span class="line">优化：</span><br><span class="line">    属性值：</span><br><span class="line">        vw =&gt; 除以10 单位vw</span><br><span class="line">        rem =&gt; 除以100 单位rem</span><br></pre></td></tr></table></figure>
-<p>最终如果要兼容低版本终端，我建议就使用REM就够了，VW也只是一个新的方法。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -746,10 +620,11 @@ p.then(res=&gt;{console.log(res)})
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -757,6 +632,10 @@ p.then(res=&gt;{console.log(res)})
 
 
           
+
+  
+
+
 
         </div>
         
@@ -777,8 +656,17 @@ p.then(res=&gt;{console.log(res)})
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -820,6 +708,22 @@ p.then(res=&gt;{console.log(res)})
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#promise学习笔记"><span class="nav-number">1.</span> <span class="nav-text">promise学习笔记</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -953,6 +857,10 @@ p.then(res=&gt;{console.log(res)})
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
