@@ -79,13 +79,20 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="一道题1234567891011121314151617181920async function async1()&amp;#123;  console.log(&amp;apos;1&amp;apos;)  await async2()  console.log(&amp;apos;2&amp;apos;)&amp;#125;async function async2()&amp;#123;  console.log(&amp;apos;3&amp;apos;)&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="async&#x2F;await学习分享">
+<meta property="og:url" content="http://yoursite.com/2018/11/30/await/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一道题1234567891011121314151617181920async function async1()&amp;#123;  console.log(&amp;apos;1&amp;apos;)  await async2()  console.log(&amp;apos;2&amp;apos;)&amp;#125;async function async2()&amp;#123;  console.log(&amp;apos;3&amp;apos;)&amp;#">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/11/30/images/co1.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/30/images/co2.png">
+<meta property="og:updated_time" content="2018-11-30T08:27:59.037Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="async&#x2F;await学习分享">
+<meta name="twitter:description" content="一道题1234567891011121314151617181920async function async1()&amp;#123;  console.log(&amp;apos;1&amp;apos;)  await async2()  console.log(&amp;apos;2&amp;apos;)&amp;#125;async function async2()&amp;#123;  console.log(&amp;apos;3&amp;apos;)&amp;#">
+<meta name="twitter:image" content="http://yoursite.com/2018/11/30/images/co1.png">
 
 
 
@@ -115,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/30/await/"/>
 
 
 
 
 
-  <title>Hexo</title>
+  <title>async/await学习分享 | Hexo</title>
   
 
 
@@ -140,8 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -214,9 +220,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -246,9 +252,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/30/await/" itemprop="url">async/await学习分享</a></h1>
+          <h1 class="post-title" itemprop="name headline">async/await学习分享</h1>
         
 
         <div class="post-meta">
@@ -298,9 +302,7 @@
       
 
       
-        
-          
-            <h3 id="一道题"><a href="#一道题" class="headerlink" title="一道题"></a>一道题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">async function async1()&#123;</span><br><span class="line">  console.log(&apos;1&apos;)</span><br><span class="line">  await async2()</span><br><span class="line">  console.log(&apos;2&apos;)</span><br><span class="line">&#125;</span><br><span class="line">async function async2()&#123;</span><br><span class="line">  console.log(&apos;3&apos;)</span><br><span class="line">&#125;</span><br><span class="line">console.log(&apos;4&apos;)</span><br><span class="line">setTimeout(function()&#123;</span><br><span class="line">  console.log(&apos;5&apos;) </span><br><span class="line">&#125;,0)  </span><br><span class="line">async1();</span><br><span class="line">new Promise(function(resolve)&#123;</span><br><span class="line">  console.log(&apos;6&apos;)</span><br><span class="line">  resolve();</span><br><span class="line">&#125;).then(function()&#123;</span><br><span class="line">  console.log(&apos;7&apos;)</span><br><span class="line">&#125;)</span><br><span class="line">console.log(&apos;8&apos;)</span><br></pre></td></tr></table></figure>
+        <h3 id="一道题"><a href="#一道题" class="headerlink" title="一道题"></a>一道题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">async function async1()&#123;</span><br><span class="line">  console.log(&apos;1&apos;)</span><br><span class="line">  await async2()</span><br><span class="line">  console.log(&apos;2&apos;)</span><br><span class="line">&#125;</span><br><span class="line">async function async2()&#123;</span><br><span class="line">  console.log(&apos;3&apos;)</span><br><span class="line">&#125;</span><br><span class="line">console.log(&apos;4&apos;)</span><br><span class="line">setTimeout(function()&#123;</span><br><span class="line">  console.log(&apos;5&apos;) </span><br><span class="line">&#125;,0)  </span><br><span class="line">async1();</span><br><span class="line">new Promise(function(resolve)&#123;</span><br><span class="line">  console.log(&apos;6&apos;)</span><br><span class="line">  resolve();</span><br><span class="line">&#125;).then(function()&#123;</span><br><span class="line">  console.log(&apos;7&apos;)</span><br><span class="line">&#125;)</span><br><span class="line">console.log(&apos;8&apos;)</span><br></pre></td></tr></table></figure>
 <h3 id="理解async-await"><a href="#理解async-await" class="headerlink" title="理解async/await"></a>理解async/await</h3><p>回调函数，事件监听，事件订阅，到 Promise 对象，再到 Generator 函数，追求解决回调地狱的问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">回调函数</span><br><span class="line">getData( a =&gt; &#123;</span><br><span class="line">    getTwoData( a, b =&gt; &#123;</span><br><span class="line">        getThreeData( b,c =&gt; &#123;</span><br><span class="line">            getFourData( c, d =&gt; &#123;</span><br><span class="line">                console.log(&apos;终于嵌套完了&apos;)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">Promise改进后</span><br><span class="line">getData().then( a =&gt; &#123;</span><br><span class="line">    return getTwoData(a)</span><br><span class="line">&#125;).then( b =&gt; &#123;</span><br><span class="line">    return getThreeData(a)</span><br><span class="line">&#125;).then( c =&gt; &#123;</span><br><span class="line">    return getFourData(c)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">Generator </span><br><span class="line">function* helloWorldGenerator() &#123;</span><br><span class="line">  yield &apos;hello&apos;;</span><br><span class="line">  yield &apos;world&apos;;</span><br><span class="line">  return &apos;ending&apos;;</span><br><span class="line">&#125;</span><br><span class="line">var hw = helloWorldGenerator();</span><br><span class="line">hw.next()</span><br><span class="line">hw.next()</span><br><span class="line">hw.next()</span><br><span class="line"></span><br><span class="line">Generator 改进后+ co 模块</span><br><span class="line">const co = require(&apos;co&apos;);</span><br><span class="line">const gen = co(function* () &#123;</span><br><span class="line">  const a = yield getData();</span><br><span class="line">  const b = yield getTwoData();</span><br><span class="line">  const c = yield getThreeData();</span><br><span class="line">  const d = yield getFourData();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">async/await 改进后</span><br><span class="line">async () =&gt; &#123;</span><br><span class="line">    const a = await getData()</span><br><span class="line">    const b = await getTwoData()</span><br><span class="line">    const c = await getThreeData()</span><br><span class="line">    const d = await getFourData()</span><br><span class="line">    console.log(d)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h4 id="async"><a href="#async" class="headerlink" title="async"></a>async</h4><p>async/await可以说是co模块和生成器函数的语法糖。用更加清晰的语义解决js异步代码。<br>使用 async / await, 搭配 promise, 可以通过编写形似同步的代码来处理异步流程, 提高代码的简洁性和可读性<br><a href="http://www.charlycheng.xyz/2018/04/19/promise:A+%E6%BA%90%E7%A0%81%E5%AE%9E%E7%8E%B0%E5%8F%8A%E5%B9%B3%E6%97%B6%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" target="_blank" rel="noopener">Promise实现</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">async function fn(args) &#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 等同于</span><br><span class="line">function fn(args) &#123;</span><br><span class="line">  return  sp(function* () &#123;</span><br><span class="line">    </span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line">function sp(genF) &#123;</span><br><span class="line">  return new Promise(function(resolve, reject) &#123;</span><br><span class="line">    const gen = genF();</span><br><span class="line">    function step(nextF) &#123;</span><br><span class="line">      let next;</span><br><span class="line">      try &#123;</span><br><span class="line">        next = nextF();</span><br><span class="line">      &#125; catch(e) &#123;</span><br><span class="line">        return reject(e);</span><br><span class="line">      &#125;</span><br><span class="line">      if(next.done) &#123;</span><br><span class="line">        return resolve(next.value);</span><br><span class="line">      &#125;</span><br><span class="line">      Promise.resolve(next.value).then(function(v) &#123;</span><br><span class="line">        step(function() &#123; return gen.next(v); &#125;);</span><br><span class="line">      &#125;, function(e) &#123;</span><br><span class="line">        step(function() &#123; return gen.throw(e); &#125;);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    step(function() &#123; return gen.next(undefined); &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>async函数会返回一个Promise对象<br>    – async函数中是return一个值，这个值就是Promise对象中resolve的值；<br>    – async函数中是throw一个值，这个值就是Promise对象中reject的值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">const imAsync = async (num) =&gt; &#123;</span><br><span class="line">  if (num &gt; 0) &#123;</span><br><span class="line">    return num // 这里相当于resolve(num)</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    throw num // 这里相当于reject(num)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">imAsync(1).then( v =&gt; &#123;</span><br><span class="line">  console.log(v);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 注意这里是catch</span><br><span class="line">imAsync(0).catch( v =&gt; &#123;</span><br><span class="line">  console.log(v);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
@@ -318,8 +320,6 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const NUM_RETRIES = 3;</span><br><span class="line">async function test() &#123;</span><br><span class="line">  let i;</span><br><span class="line">  for (i = 0; i &lt; NUM_RETRIES; ++i) &#123;</span><br><span class="line">    try &#123;</span><br><span class="line">      await Promise.resolve(&apos;出错了&apos;);</span><br><span class="line">      break;</span><br><span class="line">    &#125; catch(err) &#123;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  console.log(i);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">test();</span><br></pre></td></tr></table></figure>
 <p>多个await命令后面的异步操作，如果不存在继发关系，最好让它们同时触发<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let [foo, bar] = await Promise.all([getFoo(), getBar()]);</span><br></pre></td></tr></table></figure></p>
 
-          
-        
       
     </div>
     
@@ -336,401 +336,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/27/promise实践分享/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/27/promise实践分享/" itemprop="url">Promise实践</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-27T17:28:03+08:00">
-                2018-11-27
-              </time>
+              <a href="/2018/11/27/promise实践分享/" rel="next" title="Promise实践">
+                <i class="fa fa-chevron-left"></i> Promise实践
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h2 id="promise学习笔记"><a href="#promise学习笔记" class="headerlink" title="promise学习笔记"></a>promise学习笔记</h2><p><strong>一 JS异步：</strong></p>
-<p>1、 回调函数</p>
-<p>2、事件发布/订阅模式（观察者模式）</p>
-<p>3、使用Promise对象</p>
-<p>4、使用Generator函数</p>
-<p>5、使用async函数</p>
-<p> …等等</p>
-<p>Promise 是异步编程的一种解决方案。解决了代码缩进的金字塔问题</p>
-<p><strong>二  实现方式：</strong></p>
-<p>用 new Promise 方法创建promise对象</p>
-<p>用.then 或 .catch 添加promise对象的处理函数</p>
-<p>基本写法：</p>
-<pre><code>const promise =newPromise(function(resolve, reject){
-// ... some code
-if(/* 异步操作成功 */){
-        resolve(value);
-}else{
-        reject(error);
-}
-});
-promise.then(res =&gt;{}).catch(err=&gt;{})
-</code></pre><p><strong>三 三种状态</strong></p>
-<p><img src="http://liubin.org/promises-book/Ch1_WhatsPromises/img/promise-states.png" alt="enter image description here"></p>
-<p>从<em>Pending</em>转换为<em>Fulfilled</em>或<em>Rejected</em>之后，  这个promise对象的状态就不会再发生任何变化</p>
-<pre><code>var promise =newPromise(function(resolve){
-    resolve(42);
-    reject(30)
-});
-
-promise.then(function(value){
-    console.log(value);
-}).catch(err =&gt;{
-    console.log(err)
-});
-</code></pre><p><strong>四 用return 替代*resolve</strong></p>
-<ul>
-<li>无法改变状态</li>
-<li>无法链式调用</li>
-</ul>
-<pre><code>const testReturn =(a)=&gt;{
-    returnnewPromise((resolve,reject)=&gt;{
-        if(a){
-            return&apos;this is return&apos;;
-            //resolve(&apos;true&apos;);
-        }else{
-           reject(&apos;false&apos;);
-        }
-    })
-}
-testReturn(true).then(res =&gt;{console.log(res)})
-</code></pre><p>拿不到return结果，且promise状态不会变，依然是pending状态。</p>
-<p><strong>五 用throw</strong> 代替 <strong>reject</strong></p>
-<p>promise对象也变为Rejected状态，但是throw Error不会被catch的</p>
-<pre><code>const testReturn =(a)=&gt;{
-    returnnewPromise((resolve,reject)=&gt;{
-        if(a){
-            thrownewError(&apos;error&apos;);
-            //reject((&apos;error&apos;)
-        }
-    })
-}
-testReturn(true).catch(res =&gt;{console.log(res)})
-</code></pre><p><strong>六 代码执行顺序问题</strong><br>new Promise是同步的，会马上执行function参数中的代码。等function参数执行完，new Promise才返回一个promise实例对象。这时候再调用then，其实是已经fullfill了</p>
-<p>简单例子：</p>
-<pre><code>var promise =newPromise(function(resolve){
-    console.log(&quot;inner promise&quot;);// 1
-    resolve(42);
-});
-promise.then(function(value){
-    console.log(value);// 3
-});
-console.log(&quot;outer promise&quot;);// 2
-
-
-
-newPromise(resolve =&gt;{
-    console.log(1);
-    resolve(3);
-Promise.resolve().then(()=&gt; console.log(4))
-}).then(num =&gt;{
-    console.log(num)
-});
-console.log(2);
-</code></pre><p>当promise遇到setTimeout, <strong>resolve</strong>会将<strong>Promise.then</strong>放在微任务队列中。而setTimeout 属于 macrotask 宏任务。</p>
-<p>浏览器的一个事件循环中只有一个macrotask任务，可以有一个或多个microtask任务。</p>
-<p>promise队列中任务执行完毕，再执行setTimeout的任务队列。</p>
-<p>首先，setTimeout 被推进到 macrotask 队列(将在下一个macrotask中执行)中 -&gt;先执行 macrotask 中的第一个任务（整个script中的同步代和promise 构造函数 ）-&gt;promise.then 回调被推进到 microtask 队列中 (此时，已经执行完了第一个 macrotask) , -&gt;顺序执行所有的 microtask, (也就是 promise.then 的回调函数)。 此时，microtask 队列中的任务已经执行完毕，执行剩下的 macrotask 队列中的任务setTimeout.</p>
-<pre><code>setTimeout(function(){
-    console.log(4)
-},0);
-newPromise(function(resolve){
-     console.log(1)
-for(var i=0; i&lt;10000; i++){
-         i==9999&amp;&amp; resolve(5)
-}
-    console.log(2)
-})
-.then(function(res){
-     console.log(res)
-});
- console.log(3);
-</code></pre><p>另一种情况: resolve在setTimeout中 1-&gt;2-&gt;4(宏任务结束)-&gt;3(微任务结束)</p>
-<pre><code>const testReturn =(a)=&gt;{
-returnnewPromise((resolve,reject)=&gt;{
-    setTimeout(()=&gt;{
-         if(a){
-             resolve(3);
-             console.log(2);
-        }else{
-            reject(&apos;false&apos;);
-         }
-    })
-        console.log(1);
-    })
-}
-testReturn(true).then(str=&gt;{
-    console.log(str);
-// console.log(testReturn)
-}).catch(err=&gt;{
-    console.log(&apos;err: &apos;,err);
-})
-</code></pre><p>当有<strong>Error</strong>的时候，<strong>Error</strong>后面的代码不会被执行，但是<strong>Promise</strong>的结果依旧是<strong>fulfilled</strong></p>
-<pre><code>const testReturn =(a)=&gt;{
-    returnnewPromise((resolve,reject)=&gt;{
-        if(a){
-            resolve(&apos;exec true&apos;);
-            console.log(&apos;this will be exec&apos;);
-            thrownewError(&apos;error&apos;);
-            console.log(&apos;this will not be exec&apos;)
-        }else{
-            reject(&apos;false&apos;);
-        }
-     })
-}
-testReturn(true).then(str=&gt;{
-    console.log(str);
-// console.log(testReturn)
-}).catch(err=&gt;{
-    console.log(&apos;err: &apos;,err);
-})
-</code></pre><p><strong>七 cacth()  和 then(null, ..)</strong></p>
-<ol>
-<li><p>使用promise.then(onFulfilled, onRejected) :  在 onFulfilled 中发生异常的话，在 onRejected 中捕获不到这个异常。</p>
-</li>
-<li><p>使用 promise.then(onFulfilled).catch(onRejected) 的情况下: then 中产生的异常能在 .catch 中捕获</p>
-</li>
-</ol>
-<p>所以，cacth()  和 then(null, ..)并不完全相同</p>
-<pre><code>function throwError(value){
-// 抛出异常
-    thrownewError(value);
-}
-// &lt;1&gt; onRejected不会被调用
-function badMain(onRejected){
-    returnPromise.resolve(42).then(throwError, onRejected);
-}
-// &lt;2&gt; 有异常发生时onRejected会被调用
-function goodMain(onRejected){
-    returnPromise.resolve(42).then(throwError).catch(onRejected);
-}
-// 运行示例
-badMain(function(){
-    console.log(&quot;BAD&quot;);
-});
-goodMain(function(){
-    console.log(&quot;GOOD&quot;);
-});
-</code></pre><p><strong>八 chain 链式调用</strong></p>
-<p>在 then 方法内部，我们可以做三件事：</p>
-<ol>
-<li>return 一个 promise 对象</li>
-<li>return 一个同步的值或者是 undefined</li>
-<li>同步的 throw 一个错误</li>
-</ol>
-<p>传给每个then 方法的value 的值都是前一个promise对象通过return 返回的值。实现依赖于 then 方法每次都会创建并返回一个新的promise对象</p>
-<p><img src="http://imweb-io-1251594266.file.myqcloud.com/Fm7j8HLbuQlAZEwUG8G7imBLRJrh" alt=""></p>
-<pre><code>var aPromise =newPromise(function(resolve){
-    resolve(100);
-});
-aPromise.then(function(value){
-    return value *2;
-});
-aPromise.then(function(value){
-    return value *2;
-});
-aPromise.then(function(value){
-    console.log(&quot;1: &quot;+ value);// =&gt; 100
-})
-
-var bPromise =newPromise(function(resolve){
-    resolve(100);
-});
-bPromise.then(function(value){
-    return value *2;
-}).then(function(value){
-    return value *2;
-}).then(function(value){
-    console.log(&quot;2: &quot;+ value);// =&gt; 100 * 2 * 2
-});
-</code></pre><p>then的错误写法：promise.then 中产生的异常不会被外部捕获，此外，即使 then有返回值，也拿不到返回值。</p>
-<pre><code>function badAsyncCall(){
-var promise =Promise.resolve(&apos;111&apos;);
-    promise.then(function(){
-// 任意处理
-    return&apos;222&apos;;
-});
-    return promise;
-}
-badAsyncCall().then(res =&gt;{console.log(res)})
-
-function anAsyncCall(){
-    var promise =Promise.resolve(&apos;111&apos;);
-    return promise.then(function(){
-// 任意处理
-     return&apos;222&apos;;
-});
-}
-anAsyncCall().then(res =&gt;{console.log(res)})
-</code></pre><p><strong>九 then同时处理多个异步请求:</strong></p>
-<p>Promise.all 在接收到的所有的对象promise都变为 FulFilled 或者 Rejected 状态之后才会继续进行后面的处理，</p>
-<p>Promise.all()  以一个 promise 对象组成的数组为输入，返回另一个 promise 对象。这个对象的状态只会在数组中所有的 promise 对象的状态都变为 resolved 的时候才会变成 resolved。可以将其理解为异步的 for 循环。</p>
-<p>Promise.race() 只要有一个promise对象进入 FulFilled 或者 Rejected 状态的话，就会继续进行后面的处理，那个率先改变的Promise 实例的返回值，就传递给回调函数。romise.race 在第一个promise对象变为Fulfilled之后，并不会取消其他promise对象的执行</p>
-<pre><code>var winnerPromise =newPromise(function(resolve){
-        setTimeout(function(){
-            console.log(&apos;this is winner&apos;);
-            resolve(&apos;this is winner&apos;);
-},4);
-});
-var loserPromise =newPromise(function(resolve){
-        setTimeout(function(){
-            console.log(&apos;this is loser&apos;);
-            resolve(&apos;this is loser&apos;);
-},1000);
-});
-// 第一个promise变为resolve后程序停止
-Promise.race([winnerPromise, loserPromise]).then(function(value){
-    console.log(value);// =&gt; &apos;this is winner&apos;
-});
-
-// promise.all 解决 forEach问题
-var winnerPromise =newPromise(function(resolve){
-      resolve([1,2,3,4,5,6])
-});
-//错误
-winnerPromise.then(function(result){
-    result.forEach(function(row){
-return result
-});
-}).then(function(res){
-    console.log(res)
-    // I naively believe all docs have been removed() now!
-});
-//正确
-winnerPromise.then(function(result){
-    returnPromise.all(result.map(function(row){
-     return result
-}));
-}).then(function(res){
-    console.log(res)
-// All docs have really been removed() now!
-})
-</code></pre><p><strong>十 new Promise</strong>的快捷方式</p>
-<pre><code>function p (num){
-    if(num &gt;=0){
-        returnPromise.resolve(num)
-    }else{
-        returnPromise.reject(newError(&apos;参数不能小于 0&apos;))
-    }
-}
-p.then(res=&gt;{console.log(res)})
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -740,152 +367,11 @@ p.then(res=&gt;{console.log(res)})
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/24/利用VW，Rem实现前端页面的自适应方案/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/24/利用VW，Rem实现前端页面的自适应方案/" itemprop="url">利用VW，Rem实现前端页面的自适应方案</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-24T14:52:48+08:00">
-                2018-10-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>==题记==：目前增长团队手机端适配方案不统一，应对WAP页面的需求开发，怎么解决？标准统一对于后续开发迭代很关键，所以基于这个出发点前端团队提出需要制定相关技术标准方案。其中今天说到的关于移动端适配就是我们开始的第一步。</p>
-<hr>
-<h4 id="技术背景"><a href="#技术背景" class="headerlink" title="技术背景"></a>技术背景</h4><ul>
-<li><p>1.响应式web设计能做什么？</p>
-<p>  让一个网站同时适配多种设备和多个屏幕，可以让网站的布局和功能随用户的使用环境（屏幕大小、输入方式、设备/浏览器能力）而变化。</p>
-</li>
-<li><p>2.什么是viewport？</p>
-<p>  浏览器中用于呈现网页的区域叫视口（viewport）视口通常并不等于屏幕大小，特别是可以缩放浏览器窗口的情况下。为了解决前面的问题，可以在网页的<head>中添加下面这行代码：</head></p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui&quot;&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>3.Rem,Vw具体指的是什么？</p>
-<p>  rem的——“font size of the root element”<br>  viewport宽度有关，100%视口宽度 = 100vw  </p>
-<p>  [vw兼容性]</p>
-</li>
-</ul>
-<h4 id="技术方案"><a href="#技术方案" class="headerlink" title="技术方案"></a>技术方案</h4><p>==利用Rem Vw 实现响应式布局的基准==</p>
-<p>++实现方案：++</p>
-<p><strong>利用less的函数方式实现相关转换</strong><br>假定对应的设计稿750px宽的，100vw,那么量出来的宽度直接用less中定义的函数解决就好：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@clientW:750;</span><br><span class="line">.pxtovw(@value) &#123;</span><br><span class="line">    @pxtovw:100vw*@value/@clientW;</span><br><span class="line">    @pxtorem:@value/100rem;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//具体使用方式</span><br><span class="line">.blk_main&#123;</span><br><span class="line">    .pxtovw(750);</span><br><span class="line">     min-width:@pxtorem;</span><br><span class="line">     min-width:@pxtovw;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>纯css3属性实现无需编译</strong> (基于rem的 设计稿750宽，假定字体大小100px)</p>
-<p>1.通用方案 rem  js实现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">(function(doc, win,baseDesignValue) &#123;</span><br><span class="line">        var Dpr = 1,</span><br><span class="line">            uAgent = window.navigator.userAgent;</span><br><span class="line">        var isIOS = uAgent.match(/iphone/i);</span><br><span class="line">        var is2345 = uAgent.match(/Mb2345/i);</span><br><span class="line">        var ishaosou = uAgent.match(/mso_app/i);</span><br><span class="line">        var isSogou = uAgent.match(/sogoumobilebrowser/ig);</span><br><span class="line">        var isLiebao = uAgent.match(/liebaofast/i);</span><br><span class="line">        var isGnbr = uAgent.match(/GNBR/i);</span><br><span class="line"></span><br><span class="line">        function resizeRoot() &#123;</span><br><span class="line">            var wWidth = (screen.width &gt; 0) ? (window.innerWidth &gt;= screen.width || window.innerWidth == 0) ? screen.width : window.innerWidth : window.innerWidth,</span><br><span class="line">                wDpr, wFsize;</span><br><span class="line">            var wHeight = (screen.height &gt; 0) ? (window.innerHeight &gt;= screen.height || window.innerHeight == 0) ? screen.height : window.innerHeight : window.innerHeight;</span><br><span class="line">            if (window.devicePixelRatio) &#123;</span><br><span class="line">                wDpr = window.devicePixelRatio;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                wDpr = isIOS ? wWidth &gt; 818 ? 3 : wWidth &gt; 480 ? 2 : 1 : 1;</span><br><span class="line">            &#125;</span><br><span class="line">            if (isIOS) &#123;</span><br><span class="line">                wWidth = screen.width;</span><br><span class="line">                wHeight = screen.height;</span><br><span class="line">            &#125;</span><br><span class="line">           </span><br><span class="line">            if (wWidth &gt; wHeight) &#123;</span><br><span class="line">                wWidth = wHeight;</span><br><span class="line">            &#125;</span><br><span class="line">            wFsize = wWidth &gt; 540 ? 72 : wWidth*100 / baseDesignValue;</span><br><span class="line">            wFsize = wFsize &gt; 32 ? wFsize : 32;</span><br><span class="line">            window.screenWidth_ = wWidth;</span><br><span class="line">            if (is2345 || ishaosou || isSogou || isLiebao || isGnbr) &#123; //这里有个刚调用系统浏览器时候的bug，需要一点延迟来获取</span><br><span class="line">                setTimeout(function() &#123;</span><br><span class="line">                    wWidth = (screen.width &gt; 0) ? (window.innerWidth &gt;= screen.width || window.innerWidth == 0) ? screen.width : window.innerWidth : window.innerWidth;</span><br><span class="line">                    wHeight = (screen.height &gt; 0) ? (window.innerHeight &gt;= screen.height || window.innerHeight == 0) ? screen.height : window.innerHeight : window.innerHeight;</span><br><span class="line">                    wFsize = wWidth &gt; 540 ? 72 : wWidth / 7.5;</span><br><span class="line">                    wFsize = wFsize &gt; 32 ? wFsize : 32;</span><br><span class="line">                    document.getElementsByTagName(&apos;html&apos;)[0].style.fontSize = wFsize + &apos;px&apos;;</span><br><span class="line">                &#125;, 500);</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                document.getElementsByTagName(&apos;html&apos;)[0].style.fontSize = wFsize + &apos;px&apos;;</span><br><span class="line">            &#125;</span><br><span class="line">            // alert(&quot;fz=&quot;+wFsize+&quot;;dpr=&quot;+window.devicePixelRatio+&quot;;UA=&quot;+uAgent+&quot;;width=&quot;+wWidth+&quot;;sw=&quot;+screen.width+&quot;;wiw=&quot;+window.innerWidth+&quot;;wsw=&quot;+window.screen.width+window.screen.availWidth);</span><br><span class="line">        &#125;</span><br><span class="line">        if (!doc.documentElement.addEventListener) return;</span><br><span class="line">        doc.addEventListener(&apos;DOMContentLoaded&apos;, resizeRoot, false);</span><br><span class="line">        resizeRoot();</span><br><span class="line">    &#125;)(document, window,750);</span><br></pre></td></tr></table></figure></p>
-<p>2.激进的方案：rem + vw + 1000px宽设计稿</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">@clientW:1000;</span><br><span class="line">.pxtovw(@value) &#123;</span><br><span class="line">    @pxtovw:100vw*@value/@clientW; //@value/10</span><br><span class="line">    @pxtorem:@value/100rem;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">html &#123;</span><br><span class="line">    height: 100%;</span><br><span class="line">    font-size: 10vw; //100vw *100px/1000px</span><br><span class="line">    line-height: 1;</span><br><span class="line">    max-width: 750px;</span><br><span class="line">    overflow-x: hidden;</span><br><span class="line">    font-family: Microsoft YaHei, STHeiti, Helvetica, Arial, sans-serif!important</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.blk-main&#123;</span><br><span class="line">    .pxtovw(640);</span><br><span class="line">     min-width:@pxtorem;</span><br><span class="line">     min-width:@pxtovw;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">最终??</span><br><span class="line"></span><br><span class="line">优化：</span><br><span class="line">    属性值：</span><br><span class="line">        vw =&gt; 除以10 单位vw</span><br><span class="line">        rem =&gt; 除以100 单位rem</span><br></pre></td></tr></table></figure>
-<p>最终如果要兼容低版本终端，我建议就使用REM就够了，VW也只是一个新的方法。</p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -893,6 +379,10 @@ p.then(res=&gt;{console.log(res)})
 
 
           
+
+  
+
+
 
         </div>
         
@@ -913,8 +403,17 @@ p.then(res=&gt;{console.log(res)})
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -956,6 +455,22 @@ p.then(res=&gt;{console.log(res)})
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一道题"><span class="nav-number">1.</span> <span class="nav-text">一道题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#理解async-await"><span class="nav-number">2.</span> <span class="nav-text">理解async/await</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#async"><span class="nav-number">2.1.</span> <span class="nav-text">async</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#await"><span class="nav-number">2.2.</span> <span class="nav-text">await</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#async函数对-Generator函数的改进"><span class="nav-number">3.</span> <span class="nav-text">async函数对 Generator函数的改进</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#async-await-错误处理"><span class="nav-number">4.</span> <span class="nav-text">async/await 错误处理</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1089,6 +604,10 @@ p.then(res=&gt;{console.log(res)})
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
