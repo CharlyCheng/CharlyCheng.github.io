@@ -17,24 +17,24 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Promise实践 | CharlyCheng&#39;s Blog</title>
-  <meta name="description" content="promise学习笔记一 JS异步： 1、 回调函数 2、事件发布/订阅模式（观察者模式） 3、使用Promise对象 4、使用Generator函数 5、使用async函数  …等等 Promise 是异步编程的一种解决方案。解决了代码缩进的金字塔问题 二  实现方式： 用 new Promise 方法创建promise对象 用.then 或 .catch 添加promise对象的处理函数 基本">
-<meta name="keywords" content="Promise">
+  <title>node 实现图片合成 | CharlyCheng&#39;s Blog</title>
+  <meta name="description" content="node 实现图片操作在一个偶然的下午，我发现某城同学利用canvas 浏览器端合成图片的项目，遇到性能优化的需求，我觉得后端图片合成可以解决浏览器合成图片延迟问题，因此就私下调研了关于node图片合成相关的技术方案，下面就介绍一下比较流行的解决方案。 目前流行的技术 利用gm库实现图片的压缩，合成等。 利用node-canvas实现node端的canvas绘图。  先说一下第一种，也就是今天要介">
+<meta name="keywords" content="Node">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Promise实践">
-<meta property="og:url" content="http://yoursite.com/2018/11/27/promise实践分享/index.html">
+<meta property="og:title" content="node 实现图片合成">
+<meta property="og:url" content="http://yoursite.com/2018/12/10/node图片合成你可以做到/index.html">
 <meta property="og:site_name" content="CharlyCheng&#39;s Blog">
-<meta property="og:description" content="promise学习笔记一 JS异步： 1、 回调函数 2、事件发布/订阅模式（观察者模式） 3、使用Promise对象 4、使用Generator函数 5、使用async函数  …等等 Promise 是异步编程的一种解决方案。解决了代码缩进的金字塔问题 二  实现方式： 用 new Promise 方法创建promise对象 用.then 或 .catch 添加promise对象的处理函数 基本">
+<meta property="og:description" content="node 实现图片操作在一个偶然的下午，我发现某城同学利用canvas 浏览器端合成图片的项目，遇到性能优化的需求，我觉得后端图片合成可以解决浏览器合成图片延迟问题，因此就私下调研了关于node图片合成相关的技术方案，下面就介绍一下比较流行的解决方案。 目前流行的技术 利用gm库实现图片的压缩，合成等。 利用node-canvas实现node端的canvas绘图。  先说一下第一种，也就是今天要介">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://liubin.org/promises-book/Ch1_WhatsPromises/img/promise-states.png">
-<meta property="og:image" content="http://imweb-io-1251594266.file.myqcloud.com/Fm7j8HLbuQlAZEwUG8G7imBLRJrh">
-<meta property="og:updated_time" content="2019-03-11T08:27:50.687Z">
+<meta property="og:image" content="http://image-cherry.test.upcdn.net/cherryDesign/upload.png">
+<meta property="og:image" content="http://image-cherry.test.upcdn.net/cherryDesign/node绘图.png">
+<meta property="og:updated_time" content="2019-03-11T08:27:44.421Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Promise实践">
-<meta name="twitter:description" content="promise学习笔记一 JS异步： 1、 回调函数 2、事件发布/订阅模式（观察者模式） 3、使用Promise对象 4、使用Generator函数 5、使用async函数  …等等 Promise 是异步编程的一种解决方案。解决了代码缩进的金字塔问题 二  实现方式： 用 new Promise 方法创建promise对象 用.then 或 .catch 添加promise对象的处理函数 基本">
-<meta name="twitter:image" content="http://liubin.org/promises-book/Ch1_WhatsPromises/img/promise-states.png">
+<meta name="twitter:title" content="node 实现图片合成">
+<meta name="twitter:description" content="node 实现图片操作在一个偶然的下午，我发现某城同学利用canvas 浏览器端合成图片的项目，遇到性能优化的需求，我觉得后端图片合成可以解决浏览器合成图片延迟问题，因此就私下调研了关于node图片合成相关的技术方案，下面就介绍一下比较流行的解决方案。 目前流行的技术 利用gm库实现图片的压缩，合成等。 利用node-canvas实现node端的canvas绘图。  先说一下第一种，也就是今天要介">
+<meta name="twitter:image" content="http://image-cherry.test.upcdn.net/cherryDesign/upload.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/2018/11/27/promise实践分享/index.html">
+  <link rel="canonical" href="http://yoursite.com/2018/12/10/node图片合成你可以做到/index.html">
   
     <link rel="alternate" href="/atom.xml" title="CharlyCheng&#39;s Blog" type="application/atom+xml">
   
@@ -351,21 +351,21 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#promise学习笔记"><span class="toc-number">1.</span> <span class="toc-text">promise学习笔记</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#node-实现图片操作"><span class="toc-number">1.</span> <span class="toc-text">node 实现图片操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#目前流行的技术"><span class="toc-number">1.1.</span> <span class="toc-text">目前流行的技术</span></a></li></ol></li></ol>
     </nav>
   </div>
 </aside>
 
 <main class="main" role="main">
   <div class="content">
-  <article id="post-promise实践分享" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-node图片合成你可以做到" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Promise实践
+      node 实现图片合成
     </h1>
   
 
@@ -373,8 +373,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2018/11/27/promise实践分享/" class="article-date">
-	  <time datetime="2018-11-27T09:28:03.417Z" itemprop="datePublished">2018-11-27</time>
+	<a href="/2018/12/10/node图片合成你可以做到/" class="article-date">
+	  <time datetime="2018-12-10T08:24:47.007Z" itemprop="datePublished">2018-12-10</time>
 	</a>
 </span>
         
@@ -386,289 +386,47 @@
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/Promise/">Promise</a>
+	<a class="article-tag-link" href="/tags/Node/">Node</a>
   </span>
 
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/11/27/promise实践分享/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/12/10/node图片合成你可以做到/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="promise学习笔记"><a href="#promise学习笔记" class="headerlink" title="promise学习笔记"></a>promise学习笔记</h2><p><strong>一 JS异步：</strong></p>
-<p>1、 回调函数</p>
-<p>2、事件发布/订阅模式（观察者模式）</p>
-<p>3、使用Promise对象</p>
-<p>4、使用Generator函数</p>
-<p>5、使用async函数</p>
-<p> …等等</p>
-<p>Promise 是异步编程的一种解决方案。解决了代码缩进的金字塔问题</p>
-<p><strong>二  实现方式：</strong></p>
-<p>用 new Promise 方法创建promise对象</p>
-<p>用.then 或 .catch 添加promise对象的处理函数</p>
-<p>基本写法：</p>
-<pre><code>const promise =newPromise(function(resolve, reject){
-// ... some code
-if(/* 异步操作成功 */){
-        resolve(value);
-}else{
-        reject(error);
-}
-});
-promise.then(res =&gt;{}).catch(err=&gt;{})
-</code></pre><p><strong>三 三种状态</strong></p>
-<p><img src="http://liubin.org/promises-book/Ch1_WhatsPromises/img/promise-states.png" alt="enter image description here"></p>
-<p>从<em>Pending</em>转换为<em>Fulfilled</em>或<em>Rejected</em>之后，  这个promise对象的状态就不会再发生任何变化</p>
-<pre><code>var promise =newPromise(function(resolve){
-    resolve(42);
-    reject(30)
-});
-
-promise.then(function(value){
-    console.log(value);
-}).catch(err =&gt;{
-    console.log(err)
-});
-</code></pre><p><strong>四 用return 替代*resolve</strong></p>
-<ul>
-<li>无法改变状态</li>
-<li>无法链式调用</li>
-</ul>
-<pre><code>const testReturn =(a)=&gt;{
-    returnnewPromise((resolve,reject)=&gt;{
-        if(a){
-            return&apos;this is return&apos;;
-            //resolve(&apos;true&apos;);
-        }else{
-           reject(&apos;false&apos;);
-        }
-    })
-}
-testReturn(true).then(res =&gt;{console.log(res)})
-</code></pre><p>拿不到return结果，且promise状态不会变，依然是pending状态。</p>
-<p><strong>五 用throw</strong> 代替 <strong>reject</strong></p>
-<p>promise对象也变为Rejected状态，但是throw Error不会被catch的</p>
-<pre><code>const testReturn =(a)=&gt;{
-    returnnewPromise((resolve,reject)=&gt;{
-        if(a){
-            thrownewError(&apos;error&apos;);
-            //reject((&apos;error&apos;)
-        }
-    })
-}
-testReturn(true).catch(res =&gt;{console.log(res)})
-</code></pre><p><strong>六 代码执行顺序问题</strong><br>new Promise是同步的，会马上执行function参数中的代码。等function参数执行完，new Promise才返回一个promise实例对象。这时候再调用then，其实是已经fullfill了</p>
-<p>简单例子：</p>
-<pre><code>var promise =newPromise(function(resolve){
-    console.log(&quot;inner promise&quot;);// 1
-    resolve(42);
-});
-promise.then(function(value){
-    console.log(value);// 3
-});
-console.log(&quot;outer promise&quot;);// 2
-
-
-
-newPromise(resolve =&gt;{
-    console.log(1);
-    resolve(3);
-Promise.resolve().then(()=&gt; console.log(4))
-}).then(num =&gt;{
-    console.log(num)
-});
-console.log(2);
-</code></pre><p>当promise遇到setTimeout, <strong>resolve</strong>会将<strong>Promise.then</strong>放在微任务队列中。而setTimeout 属于 macrotask 宏任务。</p>
-<p>浏览器的一个事件循环中只有一个macrotask任务，可以有一个或多个microtask任务。</p>
-<p>promise队列中任务执行完毕，再执行setTimeout的任务队列。</p>
-<p>首先，setTimeout 被推进到 macrotask 队列(将在下一个macrotask中执行)中 -&gt;先执行 macrotask 中的第一个任务（整个script中的同步代和promise 构造函数 ）-&gt;promise.then 回调被推进到 microtask 队列中 (此时，已经执行完了第一个 macrotask) , -&gt;顺序执行所有的 microtask, (也就是 promise.then 的回调函数)。 此时，microtask 队列中的任务已经执行完毕，执行剩下的 macrotask 队列中的任务setTimeout.</p>
-<pre><code>setTimeout(function(){
-    console.log(4)
-},0);
-newPromise(function(resolve){
-     console.log(1)
-for(var i=0; i&lt;10000; i++){
-         i==9999&amp;&amp; resolve(5)
-}
-    console.log(2)
-})
-.then(function(res){
-     console.log(res)
-});
- console.log(3);
-</code></pre><p>另一种情况: resolve在setTimeout中 1-&gt;2-&gt;4(宏任务结束)-&gt;3(微任务结束)</p>
-<pre><code>const testReturn =(a)=&gt;{
-returnnewPromise((resolve,reject)=&gt;{
-    setTimeout(()=&gt;{
-         if(a){
-             resolve(3);
-             console.log(2);
-        }else{
-            reject(&apos;false&apos;);
-         }
-    })
-        console.log(1);
-    })
-}
-testReturn(true).then(str=&gt;{
-    console.log(str);
-// console.log(testReturn)
-}).catch(err=&gt;{
-    console.log(&apos;err: &apos;,err);
-})
-</code></pre><p>当有<strong>Error</strong>的时候，<strong>Error</strong>后面的代码不会被执行，但是<strong>Promise</strong>的结果依旧是<strong>fulfilled</strong></p>
-<pre><code>const testReturn =(a)=&gt;{
-    returnnewPromise((resolve,reject)=&gt;{
-        if(a){
-            resolve(&apos;exec true&apos;);
-            console.log(&apos;this will be exec&apos;);
-            thrownewError(&apos;error&apos;);
-            console.log(&apos;this will not be exec&apos;)
-        }else{
-            reject(&apos;false&apos;);
-        }
-     })
-}
-testReturn(true).then(str=&gt;{
-    console.log(str);
-// console.log(testReturn)
-}).catch(err=&gt;{
-    console.log(&apos;err: &apos;,err);
-})
-</code></pre><p><strong>七 cacth()  和 then(null, ..)</strong></p>
-<ol>
-<li><p>使用promise.then(onFulfilled, onRejected) :  在 onFulfilled 中发生异常的话，在 onRejected 中捕获不到这个异常。</p>
-</li>
-<li><p>使用 promise.then(onFulfilled).catch(onRejected) 的情况下: then 中产生的异常能在 .catch 中捕获</p>
-</li>
+        <h3 id="node-实现图片操作"><a href="#node-实现图片操作" class="headerlink" title="node 实现图片操作"></a>node 实现图片操作</h3><p>在一个偶然的下午，我发现某城同学利用canvas 浏览器端合成图片的项目，遇到性能优化的需求，我觉得后端图片合成可以解决浏览器合成图片延迟问题，因此就私下调研了关于node图片合成相关的技术方案，下面就介绍一下比较流行的解决方案。</p>
+<h4 id="目前流行的技术"><a href="#目前流行的技术" class="headerlink" title="目前流行的技术"></a>目前流行的技术</h4><ol>
+<li>利用gm库实现图片的压缩，合成等。</li>
+<li>利用node-canvas实现node端的canvas绘图。</li>
 </ol>
-<p>所以，cacth()  和 then(null, ..)并不完全相同</p>
-<pre><code>function throwError(value){
-// 抛出异常
-    thrownewError(value);
-}
-// &lt;1&gt; onRejected不会被调用
-function badMain(onRejected){
-    returnPromise.resolve(42).then(throwError, onRejected);
-}
-// &lt;2&gt; 有异常发生时onRejected会被调用
-function goodMain(onRejected){
-    returnPromise.resolve(42).then(throwError).catch(onRejected);
-}
-// 运行示例
-badMain(function(){
-    console.log(&quot;BAD&quot;);
-});
-goodMain(function(){
-    console.log(&quot;GOOD&quot;);
-});
-</code></pre><p><strong>八 chain 链式调用</strong></p>
-<p>在 then 方法内部，我们可以做三件事：</p>
-<ol>
-<li>return 一个 promise 对象</li>
-<li>return 一个同步的值或者是 undefined</li>
-<li>同步的 throw 一个错误</li>
-</ol>
-<p>传给每个then 方法的value 的值都是前一个promise对象通过return 返回的值。实现依赖于 then 方法每次都会创建并返回一个新的promise对象</p>
-<p><img src="http://imweb-io-1251594266.file.myqcloud.com/Fm7j8HLbuQlAZEwUG8G7imBLRJrh" alt=""></p>
-<pre><code>var aPromise =newPromise(function(resolve){
-    resolve(100);
-});
-aPromise.then(function(value){
-    return value *2;
-});
-aPromise.then(function(value){
-    return value *2;
-});
-aPromise.then(function(value){
-    console.log(&quot;1: &quot;+ value);// =&gt; 100
-})
+<p>先说一下第一种，也就是今天要介绍的主角，轻量无痛老牌顺手，值得码农青睐。第二种下次介绍，主要是canvas技术应用。</p>
+<p>gm就是GraphicsMagick+ImageMagick。</p>
+<p>何为GraphicsMagick？</p>
+<blockquote>
+<p>GraphicsMagick号称图像处理领域的瑞士军刀。 短小精悍的代码却提供了一个鲁棒、高效的工具和库集合，来处理图像的读取、写入和操作，支持超过88种图像格式，包括重要的DPX、GIF、JPEG、JPEG-2000、PNG、PDF、PNM和TIFF。 其实GraphicsMagick是从 ImageMagick 5.5.2 分支出来的，但是现在他变得更稳定和优秀。</p>
+</blockquote>
+<p>何为ImageMagick?</p>
+<blockquote>
+<p>ImageMagick是一款创建、编辑、合成，转换图像的命令行工具。支持格式超过 200 种，包括常见的 PNG, JPEG, GIF, HEIC, TIFF, DPX, EXR, WebP, Postscript, PDF, SVG 等。功能包括调整，翻转，镜像(mirror)，旋转，扭曲，修剪和变换图像，调整图像颜色，应用各种特殊效果，或绘制文本，线条，多边形，椭圆和贝塞尔曲线等。</p>
+</blockquote>
+<p>但是对于node来说他们好像帮不上什么忙，因此gm为了node，将二者做了封装。</p>
+<hr>
+<p>在开始gm之前首先需要安装GraphicsMagick和ImageMagick，<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install imagemagick graphicsmagick</span><br></pre></td></tr></table></figure></p>
+<p>安装完毕后，安装gm</p>
+<p>npm i gm –save</p>
+<p>上代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> gm = <span class="built_in">require</span>(<span class="string">'gm'</span>)</span><br><span class="line">gm(<span class="string">'./nodeimg.png'</span>)</span><br><span class="line">  .draw(<span class="string">'image Over 46, 706, 102, 102 "./code.png"'</span>)</span><br><span class="line">  .draw(<span class="string">'image Over 479,704, 152,56 "./beike.png"'</span>)</span><br><span class="line">  <span class="comment">//.stream() </span></span><br><span class="line">  .write(<span class="string">`./output/<span class="subst">$&#123;<span class="built_in">Date</span>.now()&#125;</span>.jpg`</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!err) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'done'</span>)</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(err.message || <span class="string">"出错了！"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure></p>
+<p>node执行相关js。成功返回图片信息。</p>
+<p>对于图片来说我们会将其存储到cdn中。但是对于我们的业务来说，这个需要结合BUCKY的上传组件，此组件是基于AWS.S3，bucky没有过多阐述相关用法，详细 API 说明可见 <a href="http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html。" target="_blank" rel="noopener">http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html。</a></p>
+<p>我们看以下文档发现，s3 上传图片需要一个stream object对象存在。因此我们需要将gm的绘图结果通过stream()API进行转化，实现s3需要的stream对象。上传操作切记需要async/await支持哈。<br><img src="http://image-cherry.test.upcdn.net/cherryDesign/upload.png" alt="image"></p>
+<p>最终实现就留给大家上手了。</p>
+<p>node实践：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> gm = <span class="built_in">require</span>(<span class="string">'gm'</span>)</span><br><span class="line"><span class="keyword">let</span>  body = gm(<span class="string">'./nodeimg.png'</span>)</span><br><span class="line">.draw(<span class="string">'image Over 46, 706, 102, 102 "./code.png"'</span>)</span><br><span class="line">.draw(<span class="string">'image Over 479,724, 152,56 "./beike.png"'</span>)</span><br><span class="line">.fontSize(<span class="number">36</span>)</span><br><span class="line">.font(<span class="string">'./font/FZZXHJW.TTF'</span>)</span><br><span class="line">.stroke(<span class="string">"#999999"</span>,<span class="number">2</span>)</span><br><span class="line">.drawText(<span class="number">200</span>,<span class="number">764</span>, <span class="string">"增长线前端出品"</span>)       </span><br><span class="line">.write(<span class="string">`./output/gm<span class="subst">$&#123;<span class="built_in">Date</span>.now()&#125;</span>.jpg`</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!err) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'done'</span>)</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(err.message || <span class="string">"出错了！"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure></p>
+<p>温馨提示：使用字体时注意版权问题哈。</p>
+<p><img src="http://image-cherry.test.upcdn.net/cherryDesign/node绘图.png" alt="demo"></p>
 
-var bPromise =newPromise(function(resolve){
-    resolve(100);
-});
-bPromise.then(function(value){
-    return value *2;
-}).then(function(value){
-    return value *2;
-}).then(function(value){
-    console.log(&quot;2: &quot;+ value);// =&gt; 100 * 2 * 2
-});
-</code></pre><p>then的错误写法：promise.then 中产生的异常不会被外部捕获，此外，即使 then有返回值，也拿不到返回值。</p>
-<pre><code>function badAsyncCall(){
-var promise =Promise.resolve(&apos;111&apos;);
-    promise.then(function(){
-// 任意处理
-    return&apos;222&apos;;
-});
-    return promise;
-}
-badAsyncCall().then(res =&gt;{console.log(res)})
-
-function anAsyncCall(){
-    var promise =Promise.resolve(&apos;111&apos;);
-    return promise.then(function(){
-// 任意处理
-     return&apos;222&apos;;
-});
-}
-anAsyncCall().then(res =&gt;{console.log(res)})
-</code></pre><p><strong>九 then同时处理多个异步请求:</strong></p>
-<p>Promise.all 在接收到的所有的对象promise都变为 FulFilled 或者 Rejected 状态之后才会继续进行后面的处理，</p>
-<p>Promise.all()  以一个 promise 对象组成的数组为输入，返回另一个 promise 对象。这个对象的状态只会在数组中所有的 promise 对象的状态都变为 resolved 的时候才会变成 resolved。可以将其理解为异步的 for 循环。</p>
-<p>Promise.race() 只要有一个promise对象进入 FulFilled 或者 Rejected 状态的话，就会继续进行后面的处理，那个率先改变的Promise 实例的返回值，就传递给回调函数。romise.race 在第一个promise对象变为Fulfilled之后，并不会取消其他promise对象的执行</p>
-<pre><code>var winnerPromise =newPromise(function(resolve){
-        setTimeout(function(){
-            console.log(&apos;this is winner&apos;);
-            resolve(&apos;this is winner&apos;);
-},4);
-});
-var loserPromise =newPromise(function(resolve){
-        setTimeout(function(){
-            console.log(&apos;this is loser&apos;);
-            resolve(&apos;this is loser&apos;);
-},1000);
-});
-// 第一个promise变为resolve后程序停止
-Promise.race([winnerPromise, loserPromise]).then(function(value){
-    console.log(value);// =&gt; &apos;this is winner&apos;
-});
-
-// promise.all 解决 forEach问题
-var winnerPromise =newPromise(function(resolve){
-      resolve([1,2,3,4,5,6])
-});
-//错误
-winnerPromise.then(function(result){
-    result.forEach(function(row){
-return result
-});
-}).then(function(res){
-    console.log(res)
-    // I naively believe all docs have been removed() now!
-});
-//正确
-winnerPromise.then(function(result){
-    returnPromise.all(result.map(function(row){
-     return result
-}));
-}).then(function(res){
-    console.log(res)
-// All docs have really been removed() now!
-})
-</code></pre><p><strong>十 new Promise</strong>的快捷方式</p>
-<pre><code>function p (num){
-    if(num &gt;=0){
-        returnPromise.resolve(num)
-    }else{
-        returnPromise.reject(newError(&apos;参数不能小于 0&apos;))
-    }
-}
-p.then(res=&gt;{console.log(res)})
-</code></pre>
       
     </div>
     <div class="article-footer">
@@ -677,7 +435,7 @@ p.then(res=&gt;{console.log(res)})
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://yoursite.com/2018/11/27/promise实践分享/" title="Promise实践" target="_blank" rel="external">http://yoursite.com/2018/11/27/promise实践分享/</a>
+      <a href="http://yoursite.com/2018/12/10/node图片合成你可以做到/" title="node 实现图片合成" target="_blank" rel="external">http://yoursite.com/2018/12/10/node图片合成你可以做到/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -724,12 +482,12 @@ p.then(res=&gt;{console.log(res)})
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2018/11/30/await/" title="一起来学async/await"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2019/03/11/leetCode/" title="leetcode 无重复字符的最长子串"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2018/10/24/利用VW，Rem实现前端页面的自适应方案/" title="利用VW，Rem实现前端页面的自适应方案"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2018/11/30/await/" title="一起来学async/await"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

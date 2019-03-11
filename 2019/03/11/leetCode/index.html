@@ -17,24 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Promise实践 | CharlyCheng&#39;s Blog</title>
-  <meta name="description" content="promise学习笔记一 JS异步： 1、 回调函数 2、事件发布/订阅模式（观察者模式） 3、使用Promise对象 4、使用Generator函数 5、使用async函数  …等等 Promise 是异步编程的一种解决方案。解决了代码缩进的金字塔问题 二  实现方式： 用 new Promise 方法创建promise对象 用.then 或 .catch 添加promise对象的处理函数 基本">
-<meta name="keywords" content="Promise">
+  <title>leetcode 无重复字符的最长子串 | CharlyCheng&#39;s Blog</title>
+  <meta name="description" content="概要定义两个变量res和left，其中res用来记录最长无重复子串的长度，lefts指向该无重复子串左边的起始位置，然后我们遍历整个字符串，对于每一个遍历到的字符，如果哈希表中该字符串对应的值为0，说明没有遇到过该字符，则此时计算最长无重复子串，i - left +１，其中ｉ是最长无重复子串最右边的位置，left是最左边的位置，还有一种情况也需要计算最长无重复子串，就是当哈希表中的值小于left，">
+<meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Promise实践">
-<meta property="og:url" content="http://yoursite.com/2018/11/27/promise实践分享/index.html">
+<meta property="og:title" content="leetcode 无重复字符的最长子串">
+<meta property="og:url" content="http://yoursite.com/2019/03/11/leetCode/index.html">
 <meta property="og:site_name" content="CharlyCheng&#39;s Blog">
-<meta property="og:description" content="promise学习笔记一 JS异步： 1、 回调函数 2、事件发布/订阅模式（观察者模式） 3、使用Promise对象 4、使用Generator函数 5、使用async函数  …等等 Promise 是异步编程的一种解决方案。解决了代码缩进的金字塔问题 二  实现方式： 用 new Promise 方法创建promise对象 用.then 或 .catch 添加promise对象的处理函数 基本">
+<meta property="og:description" content="概要定义两个变量res和left，其中res用来记录最长无重复子串的长度，lefts指向该无重复子串左边的起始位置，然后我们遍历整个字符串，对于每一个遍历到的字符，如果哈希表中该字符串对应的值为0，说明没有遇到过该字符，则此时计算最长无重复子串，i - left +１，其中ｉ是最长无重复子串最右边的位置，left是最左边的位置，还有一种情况也需要计算最长无重复子串，就是当哈希表中的值小于left，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://liubin.org/promises-book/Ch1_WhatsPromises/img/promise-states.png">
-<meta property="og:image" content="http://imweb-io-1251594266.file.myqcloud.com/Fm7j8HLbuQlAZEwUG8G7imBLRJrh">
-<meta property="og:updated_time" content="2019-03-11T08:27:50.687Z">
+<meta property="og:updated_time" content="2019-03-11T08:28:28.615Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Promise实践">
-<meta name="twitter:description" content="promise学习笔记一 JS异步： 1、 回调函数 2、事件发布/订阅模式（观察者模式） 3、使用Promise对象 4、使用Generator函数 5、使用async函数  …等等 Promise 是异步编程的一种解决方案。解决了代码缩进的金字塔问题 二  实现方式： 用 new Promise 方法创建promise对象 用.then 或 .catch 添加promise对象的处理函数 基本">
-<meta name="twitter:image" content="http://liubin.org/promises-book/Ch1_WhatsPromises/img/promise-states.png">
+<meta name="twitter:title" content="leetcode 无重复字符的最长子串">
+<meta name="twitter:description" content="概要定义两个变量res和left，其中res用来记录最长无重复子串的长度，lefts指向该无重复子串左边的起始位置，然后我们遍历整个字符串，对于每一个遍历到的字符，如果哈希表中该字符串对应的值为0，说明没有遇到过该字符，则此时计算最长无重复子串，i - left +１，其中ｉ是最长无重复子串最右边的位置，left是最左边的位置，还有一种情况也需要计算最长无重复子串，就是当哈希表中的值小于left，">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/2018/11/27/promise实践分享/index.html">
+  <link rel="canonical" href="http://yoursite.com/2019/03/11/leetCode/index.html">
   
     <link rel="alternate" href="/atom.xml" title="CharlyCheng&#39;s Blog" type="application/atom+xml">
   
@@ -351,21 +348,21 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#promise学习笔记"><span class="toc-number">1.</span> <span class="toc-text">promise学习笔记</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#概要"><span class="toc-number">1.</span> <span class="toc-text">概要</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#无重复字符的最长子串"><span class="toc-number">2.</span> <span class="toc-text">无重复字符的最长子串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解法一"><span class="toc-number">3.</span> <span class="toc-text">解法一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解法二"><span class="toc-number">4.</span> <span class="toc-text">解法二</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解法三"><span class="toc-number">5.</span> <span class="toc-text">解法三</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#两个排序数组的中位数"><span class="toc-number">6.</span> <span class="toc-text">两个排序数组的中位数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解题思路"><span class="toc-number">7.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解法一-1"><span class="toc-number">8.</span> <span class="toc-text">解法一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解法二-1"><span class="toc-number">9.</span> <span class="toc-text">解法二</span></a></li></ol>
     </nav>
   </div>
 </aside>
 
 <main class="main" role="main">
   <div class="content">
-  <article id="post-promise实践分享" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-leetCode" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Promise实践
+      leetcode 无重复字符的最长子串
     </h1>
   
 
@@ -373,302 +370,42 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2018/11/27/promise实践分享/" class="article-date">
-	  <time datetime="2018-11-27T09:28:03.417Z" itemprop="datePublished">2018-11-27</time>
+	<a href="/2019/03/11/leetCode/" class="article-date">
+	  <time datetime="2019-03-11T07:24:38.612Z" itemprop="datePublished">2019-03-11</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/技术杂记/">技术杂记</a>
+    <a class="article-category-link" href="/categories/算法、数据/">算法、数据</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/Promise/">Promise</a>
+	<a class="article-tag-link" href="/tags/leetcode/">leetcode</a>
   </span>
 
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/11/27/promise实践分享/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/03/11/leetCode/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="promise学习笔记"><a href="#promise学习笔记" class="headerlink" title="promise学习笔记"></a>promise学习笔记</h2><p><strong>一 JS异步：</strong></p>
-<p>1、 回调函数</p>
-<p>2、事件发布/订阅模式（观察者模式）</p>
-<p>3、使用Promise对象</p>
-<p>4、使用Generator函数</p>
-<p>5、使用async函数</p>
-<p> …等等</p>
-<p>Promise 是异步编程的一种解决方案。解决了代码缩进的金字塔问题</p>
-<p><strong>二  实现方式：</strong></p>
-<p>用 new Promise 方法创建promise对象</p>
-<p>用.then 或 .catch 添加promise对象的处理函数</p>
-<p>基本写法：</p>
-<pre><code>const promise =newPromise(function(resolve, reject){
-// ... some code
-if(/* 异步操作成功 */){
-        resolve(value);
-}else{
-        reject(error);
-}
-});
-promise.then(res =&gt;{}).catch(err=&gt;{})
-</code></pre><p><strong>三 三种状态</strong></p>
-<p><img src="http://liubin.org/promises-book/Ch1_WhatsPromises/img/promise-states.png" alt="enter image description here"></p>
-<p>从<em>Pending</em>转换为<em>Fulfilled</em>或<em>Rejected</em>之后，  这个promise对象的状态就不会再发生任何变化</p>
-<pre><code>var promise =newPromise(function(resolve){
-    resolve(42);
-    reject(30)
-});
+        <h3 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h3><p>定义两个变量res和left，其中res用来记录最长无重复子串的长度，lefts指向该无重复子串左边的起始位置，然后我们遍历整个字符串，对于每一个遍历到的字符，如果哈希表中该字符串对应的值为0，说明没有遇到过该字符，则此时计算最长无重复子串，i - left +１，其中ｉ是最长无重复子串最右边的位置，left是最左边的位置，还有一种情况也需要计算最长无重复子串，就是当哈希表中的值小于left，这是由于此时出现过重复的字符，left的位置更新了，如果又遇到了新的字符，就要重新计算最长无重复子串。最后每次都要在哈希表中将当前字符对应的值赋值为i+1</p>
+<h3 id="无重复字符的最长子串"><a href="#无重复字符的最长子串" class="headerlink" title="无重复字符的最长子串"></a>无重复字符的最长子串</h3><p>给定一个字符串，找出不含有重复字符的最长子串的长度。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">给定 &quot;abcabcbb&quot; ，没有重复字符的最长子串是 &quot;abc&quot; ，那么长度就是3。</span><br><span class="line"></span><br><span class="line">给定 &quot;bbbbb&quot; ，最长的子串就是 &quot;b&quot; ，长度是1。</span><br><span class="line"></span><br><span class="line">给定 &quot;pwwkew&quot; ，最长子串是 &quot;wke&quot; ，长度是3。请注意答案必须是一个子串，&quot;pwke&quot; 是 子序列  而不是子串。</span><br></pre></td></tr></table></figure></p>
+<h3 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @param &#123;string&#125; s</span><br><span class="line"> * @return &#123;number&#125;</span><br><span class="line"> */</span><br><span class="line"> var lengthOfLongestSubstring = function(s) &#123;</span><br><span class="line">     let hash = &#123;&#125;</span><br><span class="line">     let start = 0</span><br><span class="line">     let ans = 0</span><br><span class="line"></span><br><span class="line">     for (var i = 0; i &lt; s.length; i++)&#123;</span><br><span class="line">         let item = s[i]</span><br><span class="line">         if (!hash[item]) &#123;</span><br><span class="line">             hash[item] = true</span><br><span class="line">         &#125; else &#123;</span><br><span class="line">             for (;;) &#123;</span><br><span class="line">                  if (s[start] === item) &#123;</span><br><span class="line">                     start++;</span><br><span class="line">                     break;</span><br><span class="line">                 &#125;</span><br><span class="line">                 hash[s[start]] = false</span><br><span class="line">                 start++</span><br><span class="line">             &#125;</span><br><span class="line"></span><br><span class="line">         &#125;</span><br><span class="line">         ans = Math.max(ans, i - start + 1)</span><br><span class="line">     &#125;</span><br><span class="line">     return ans</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var lengthOfLongestSubstring = function(s) &#123;</span><br><span class="line">    var res = 0</span><br><span class="line">    var left = -1</span><br><span class="line">    var m = []</span><br><span class="line">    m.fill(-1)</span><br><span class="line">    for (var i = 0; i &lt; s.length; i++) &#123;</span><br><span class="line">        left  = Math.max(left, m[s.charAt(i)])</span><br><span class="line">        m[s.charAt[i]] = i</span><br><span class="line">        res = Math.max(res, i - left)</span><br><span class="line">    &#125;</span><br><span class="line">    return res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="解法三"><a href="#解法三" class="headerlink" title="解法三"></a>解法三</h3><p>下面这种解法使用了set，核心算法和上面的很类似，把出现过的字符都放入set中，遇到set中没有的字符就加入set中并更新结果res，如果遇到重复的，则从左边开始删字符，直到删到重复的字符停止：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var lengthOfLongestSubstring = function(s) &#123;</span><br><span class="line">    var res = 0</span><br><span class="line">    var left = 0</span><br><span class="line">    var right = 0</span><br><span class="line">    var t = new Set()</span><br><span class="line">    while (right &lt; s.length)&#123;</span><br><span class="line">        if (!t.has(s.charAt(right))) &#123;</span><br><span class="line">            t.add(s.charAt(right++))</span><br><span class="line">            res = Math.max(res, t.size)</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            t.delete(s.charAt(left++))</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="两个排序数组的中位数"><a href="#两个排序数组的中位数" class="headerlink" title="两个排序数组的中位数"></a>两个排序数组的中位数</h3><p>给定两个大小为 m 和 n 的有序数组 nums1 和 nums2 。<br>请找出这两个有序数组的中位数。要求算法的时间复杂度为 O(log (m+n))<br>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nums1 = [1, 3]</span><br><span class="line">nums2 = [2]</span><br><span class="line"></span><br><span class="line">中位数是 2.0</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nums1 = [1, 2]</span><br><span class="line">nums2 = [3, 4]</span><br><span class="line">中位数是 (2 + 3)/2 = 2.5</span><br></pre></td></tr></table></figure>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>这道题让我们求两个有序数组的中位数，而且限制了时间复杂度为O(log (m+n))，看到这个时间复杂度，自然而然的想到了应该使用二分查找法来求解。但是这道题被定义为Hard也是有其原因的，难就难在要在两个未合并的有序数组之间使用二分法，这里我们需要定义一个函数来找到第K个元素，由于两个数组长度之和的奇偶不确定，因此需要分情况来讨论，对于奇数的情况，直接找到最中间的数即可，偶数的话需要求最中间两个数的平均值。下面重点来看如何实现找到第K个元素，首先我们需要让数组1的长度小于或等于数组2的长度，那么我们只需判断如果数组1的长度大于数组2的长度的话，交换两个数组即可，然后我们要判断小的数组是否为空，为空的话，直接在另一个数组找第K个即可。还有一种情况是当K = 1时，表示我们要找第一个元素，只要比较两个数组的第一个元素，返回较小的那个即可。</p>
+<h3 id="解法一-1"><a href="#解法一-1" class="headerlink" title="解法一"></a>解法一</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var findMedianSortedArrays = function(nums1, nums2) &#123;</span><br><span class="line">  var s = nums1.concat(nums2);</span><br><span class="line">  s.sort(function(a, b) &#123;</span><br><span class="line">    return a - b;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  var len = s.length;</span><br><span class="line">  if (len &amp; 1) return s[~~(len / 2)];</span><br><span class="line">  else return (s[len / 2 - 1] + s[len / 2]) / 2;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="解法二-1"><a href="#解法二-1" class="headerlink" title="解法二"></a>解法二</h3><p>此题还能用二分搜索法来解，是一种相当巧妙的应用，讲解在这个帖子中写的十分清楚，等有时间我再来写写分析过程：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">var findMedianSortedArrays = function(nums1, nums2) &#123;</span><br><span class="line">    var m = nums1.length;</span><br><span class="line">    var n = nums2.length;</span><br><span class="line">    if (m &lt; n) &#123;</span><br><span class="line">        return findMedianSortedArrays(nums2, nums1)</span><br><span class="line">    &#125;</span><br><span class="line">    if (n == 0) &#123;</span><br><span class="line">        return (nums1[(m - 1) / 2] + nums1[m / 2]) / 2.0</span><br><span class="line">    &#125;</span><br><span class="line">    var left = 0,</span><br><span class="line">        right = 2 * n</span><br><span class="line">    while (left &lt;= right) &#123;</span><br><span class="line">        var mid2 = (left + right) / 2;</span><br><span class="line">        var mid1 = m + n - mid2;</span><br><span class="line">        var L1 = mid1 == 0 ? 0 : nums1[(mid1 - 1) / 2];</span><br><span class="line">        var L2 = mid2 == 0 ? 0 : nums2[(mid2 - 1) / 2];</span><br><span class="line">        var R1 = mid1 == m * 2 ? 0 : nums1[mid1 / 2];</span><br><span class="line">        var R2 = mid2 == n * 2 ? 0 : nums2[mid2 / 2];</span><br><span class="line">            if (L1 &gt; R2) &#123;</span><br><span class="line">                left = mid2 + 1;</span><br><span class="line">            &#125;else if (L2 &gt; R1) &#123;</span><br><span class="line">                right = mid2 - 1;</span><br><span class="line">            &#125;else &#123;</span><br><span class="line">                return (Math.max(L1, L2) + Math.min(R1, R2)) / 2;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
-promise.then(function(value){
-    console.log(value);
-}).catch(err =&gt;{
-    console.log(err)
-});
-</code></pre><p><strong>四 用return 替代*resolve</strong></p>
-<ul>
-<li>无法改变状态</li>
-<li>无法链式调用</li>
-</ul>
-<pre><code>const testReturn =(a)=&gt;{
-    returnnewPromise((resolve,reject)=&gt;{
-        if(a){
-            return&apos;this is return&apos;;
-            //resolve(&apos;true&apos;);
-        }else{
-           reject(&apos;false&apos;);
-        }
-    })
-}
-testReturn(true).then(res =&gt;{console.log(res)})
-</code></pre><p>拿不到return结果，且promise状态不会变，依然是pending状态。</p>
-<p><strong>五 用throw</strong> 代替 <strong>reject</strong></p>
-<p>promise对象也变为Rejected状态，但是throw Error不会被catch的</p>
-<pre><code>const testReturn =(a)=&gt;{
-    returnnewPromise((resolve,reject)=&gt;{
-        if(a){
-            thrownewError(&apos;error&apos;);
-            //reject((&apos;error&apos;)
-        }
-    })
-}
-testReturn(true).catch(res =&gt;{console.log(res)})
-</code></pre><p><strong>六 代码执行顺序问题</strong><br>new Promise是同步的，会马上执行function参数中的代码。等function参数执行完，new Promise才返回一个promise实例对象。这时候再调用then，其实是已经fullfill了</p>
-<p>简单例子：</p>
-<pre><code>var promise =newPromise(function(resolve){
-    console.log(&quot;inner promise&quot;);// 1
-    resolve(42);
-});
-promise.then(function(value){
-    console.log(value);// 3
-});
-console.log(&quot;outer promise&quot;);// 2
-
-
-
-newPromise(resolve =&gt;{
-    console.log(1);
-    resolve(3);
-Promise.resolve().then(()=&gt; console.log(4))
-}).then(num =&gt;{
-    console.log(num)
-});
-console.log(2);
-</code></pre><p>当promise遇到setTimeout, <strong>resolve</strong>会将<strong>Promise.then</strong>放在微任务队列中。而setTimeout 属于 macrotask 宏任务。</p>
-<p>浏览器的一个事件循环中只有一个macrotask任务，可以有一个或多个microtask任务。</p>
-<p>promise队列中任务执行完毕，再执行setTimeout的任务队列。</p>
-<p>首先，setTimeout 被推进到 macrotask 队列(将在下一个macrotask中执行)中 -&gt;先执行 macrotask 中的第一个任务（整个script中的同步代和promise 构造函数 ）-&gt;promise.then 回调被推进到 microtask 队列中 (此时，已经执行完了第一个 macrotask) , -&gt;顺序执行所有的 microtask, (也就是 promise.then 的回调函数)。 此时，microtask 队列中的任务已经执行完毕，执行剩下的 macrotask 队列中的任务setTimeout.</p>
-<pre><code>setTimeout(function(){
-    console.log(4)
-},0);
-newPromise(function(resolve){
-     console.log(1)
-for(var i=0; i&lt;10000; i++){
-         i==9999&amp;&amp; resolve(5)
-}
-    console.log(2)
-})
-.then(function(res){
-     console.log(res)
-});
- console.log(3);
-</code></pre><p>另一种情况: resolve在setTimeout中 1-&gt;2-&gt;4(宏任务结束)-&gt;3(微任务结束)</p>
-<pre><code>const testReturn =(a)=&gt;{
-returnnewPromise((resolve,reject)=&gt;{
-    setTimeout(()=&gt;{
-         if(a){
-             resolve(3);
-             console.log(2);
-        }else{
-            reject(&apos;false&apos;);
-         }
-    })
-        console.log(1);
-    })
-}
-testReturn(true).then(str=&gt;{
-    console.log(str);
-// console.log(testReturn)
-}).catch(err=&gt;{
-    console.log(&apos;err: &apos;,err);
-})
-</code></pre><p>当有<strong>Error</strong>的时候，<strong>Error</strong>后面的代码不会被执行，但是<strong>Promise</strong>的结果依旧是<strong>fulfilled</strong></p>
-<pre><code>const testReturn =(a)=&gt;{
-    returnnewPromise((resolve,reject)=&gt;{
-        if(a){
-            resolve(&apos;exec true&apos;);
-            console.log(&apos;this will be exec&apos;);
-            thrownewError(&apos;error&apos;);
-            console.log(&apos;this will not be exec&apos;)
-        }else{
-            reject(&apos;false&apos;);
-        }
-     })
-}
-testReturn(true).then(str=&gt;{
-    console.log(str);
-// console.log(testReturn)
-}).catch(err=&gt;{
-    console.log(&apos;err: &apos;,err);
-})
-</code></pre><p><strong>七 cacth()  和 then(null, ..)</strong></p>
-<ol>
-<li><p>使用promise.then(onFulfilled, onRejected) :  在 onFulfilled 中发生异常的话，在 onRejected 中捕获不到这个异常。</p>
-</li>
-<li><p>使用 promise.then(onFulfilled).catch(onRejected) 的情况下: then 中产生的异常能在 .catch 中捕获</p>
-</li>
-</ol>
-<p>所以，cacth()  和 then(null, ..)并不完全相同</p>
-<pre><code>function throwError(value){
-// 抛出异常
-    thrownewError(value);
-}
-// &lt;1&gt; onRejected不会被调用
-function badMain(onRejected){
-    returnPromise.resolve(42).then(throwError, onRejected);
-}
-// &lt;2&gt; 有异常发生时onRejected会被调用
-function goodMain(onRejected){
-    returnPromise.resolve(42).then(throwError).catch(onRejected);
-}
-// 运行示例
-badMain(function(){
-    console.log(&quot;BAD&quot;);
-});
-goodMain(function(){
-    console.log(&quot;GOOD&quot;);
-});
-</code></pre><p><strong>八 chain 链式调用</strong></p>
-<p>在 then 方法内部，我们可以做三件事：</p>
-<ol>
-<li>return 一个 promise 对象</li>
-<li>return 一个同步的值或者是 undefined</li>
-<li>同步的 throw 一个错误</li>
-</ol>
-<p>传给每个then 方法的value 的值都是前一个promise对象通过return 返回的值。实现依赖于 then 方法每次都会创建并返回一个新的promise对象</p>
-<p><img src="http://imweb-io-1251594266.file.myqcloud.com/Fm7j8HLbuQlAZEwUG8G7imBLRJrh" alt=""></p>
-<pre><code>var aPromise =newPromise(function(resolve){
-    resolve(100);
-});
-aPromise.then(function(value){
-    return value *2;
-});
-aPromise.then(function(value){
-    return value *2;
-});
-aPromise.then(function(value){
-    console.log(&quot;1: &quot;+ value);// =&gt; 100
-})
-
-var bPromise =newPromise(function(resolve){
-    resolve(100);
-});
-bPromise.then(function(value){
-    return value *2;
-}).then(function(value){
-    return value *2;
-}).then(function(value){
-    console.log(&quot;2: &quot;+ value);// =&gt; 100 * 2 * 2
-});
-</code></pre><p>then的错误写法：promise.then 中产生的异常不会被外部捕获，此外，即使 then有返回值，也拿不到返回值。</p>
-<pre><code>function badAsyncCall(){
-var promise =Promise.resolve(&apos;111&apos;);
-    promise.then(function(){
-// 任意处理
-    return&apos;222&apos;;
-});
-    return promise;
-}
-badAsyncCall().then(res =&gt;{console.log(res)})
-
-function anAsyncCall(){
-    var promise =Promise.resolve(&apos;111&apos;);
-    return promise.then(function(){
-// 任意处理
-     return&apos;222&apos;;
-});
-}
-anAsyncCall().then(res =&gt;{console.log(res)})
-</code></pre><p><strong>九 then同时处理多个异步请求:</strong></p>
-<p>Promise.all 在接收到的所有的对象promise都变为 FulFilled 或者 Rejected 状态之后才会继续进行后面的处理，</p>
-<p>Promise.all()  以一个 promise 对象组成的数组为输入，返回另一个 promise 对象。这个对象的状态只会在数组中所有的 promise 对象的状态都变为 resolved 的时候才会变成 resolved。可以将其理解为异步的 for 循环。</p>
-<p>Promise.race() 只要有一个promise对象进入 FulFilled 或者 Rejected 状态的话，就会继续进行后面的处理，那个率先改变的Promise 实例的返回值，就传递给回调函数。romise.race 在第一个promise对象变为Fulfilled之后，并不会取消其他promise对象的执行</p>
-<pre><code>var winnerPromise =newPromise(function(resolve){
-        setTimeout(function(){
-            console.log(&apos;this is winner&apos;);
-            resolve(&apos;this is winner&apos;);
-},4);
-});
-var loserPromise =newPromise(function(resolve){
-        setTimeout(function(){
-            console.log(&apos;this is loser&apos;);
-            resolve(&apos;this is loser&apos;);
-},1000);
-});
-// 第一个promise变为resolve后程序停止
-Promise.race([winnerPromise, loserPromise]).then(function(value){
-    console.log(value);// =&gt; &apos;this is winner&apos;
-});
-
-// promise.all 解决 forEach问题
-var winnerPromise =newPromise(function(resolve){
-      resolve([1,2,3,4,5,6])
-});
-//错误
-winnerPromise.then(function(result){
-    result.forEach(function(row){
-return result
-});
-}).then(function(res){
-    console.log(res)
-    // I naively believe all docs have been removed() now!
-});
-//正确
-winnerPromise.then(function(result){
-    returnPromise.all(result.map(function(row){
-     return result
-}));
-}).then(function(res){
-    console.log(res)
-// All docs have really been removed() now!
-})
-</code></pre><p><strong>十 new Promise</strong>的快捷方式</p>
-<pre><code>function p (num){
-    if(num &gt;=0){
-        returnPromise.resolve(num)
-    }else{
-        returnPromise.reject(newError(&apos;参数不能小于 0&apos;))
-    }
-}
-p.then(res=&gt;{console.log(res)})
-</code></pre>
       
     </div>
     <div class="article-footer">
@@ -677,7 +414,7 @@ p.then(res=&gt;{console.log(res)})
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://yoursite.com/2018/11/27/promise实践分享/" title="Promise实践" target="_blank" rel="external">http://yoursite.com/2018/11/27/promise实践分享/</a>
+      <a href="http://yoursite.com/2019/03/11/leetCode/" title="leetcode 无重复字符的最长子串" target="_blank" rel="external">http://yoursite.com/2019/03/11/leetCode/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -724,12 +461,12 @@ p.then(res=&gt;{console.log(res)})
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2018/11/30/await/" title="一起来学async/await"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2019/03/11/leetCode.1/" title="leetcode 两数之和/两数相加"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2018/10/24/利用VW，Rem实现前端页面的自适应方案/" title="利用VW，Rem实现前端页面的自适应方案"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2018/12/10/node图片合成你可以做到/" title="node 实现图片合成"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
