@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Webpack DllPlugin 让构建速度柔顺丝滑 | CharlyCheng&#39;s Blog</title>
+  <meta name="description" content="概念DLLPlugin 和 DLLReferencePlugin 用某种方法实现了拆分 bundles，同时还大大提升了构建的速度,将包含大量复用模块且不会频繁更新的库进行编译，只需要编译一次，编译完成后存在指定的文件中。在之后的构建过程中不会再对这些模块进行编译，而是直接使用 DllReferencePlugin 来引用动态链接库的代码。一般会对常用的第三方模块使用这种方式，例如 react、r">
+<meta name="keywords" content="Webpack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Webpack DllPlugin 让构建速度柔顺丝滑">
+<meta property="og:url" content="http://yoursite.com/2019/03/13/webpackDLL/index.html">
+<meta property="og:site_name" content="CharlyCheng&#39;s Blog">
+<meta property="og:description" content="概念DLLPlugin 和 DLLReferencePlugin 用某种方法实现了拆分 bundles，同时还大大提升了构建的速度,将包含大量复用模块且不会频繁更新的库进行编译，只需要编译一次，编译完成后存在指定的文件中。在之后的构建过程中不会再对这些模块进行编译，而是直接使用 DllReferencePlugin 来引用动态链接库的代码。一般会对常用的第三方模块使用这种方式，例如 react、r">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/3/13/16974c2df5338d5e?w=1572&h=1872&f=jpeg&s=175757">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/3/13/1697508a640298b7?w=2804&h=1608&f=jpeg&s=457919">
+<meta property="og:updated_time" content="2019-03-13T03:34:22.317Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Webpack DllPlugin 让构建速度柔顺丝滑">
+<meta name="twitter:description" content="概念DLLPlugin 和 DLLReferencePlugin 用某种方法实现了拆分 bundles，同时还大大提升了构建的速度,将包含大量复用模块且不会频繁更新的库进行编译，只需要编译一次，编译完成后存在指定的文件中。在之后的构建过程中不会再对这些模块进行编译，而是直接使用 DllReferencePlugin 来引用动态链接库的代码。一般会对常用的第三方模块使用这种方式，例如 react、r">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/3/13/16974c2df5338d5e?w=1572&h=1872&f=jpeg&s=175757">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://yoursite.com/2019/03/13/webpackDLL/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="CharlyCheng&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//23114798.jpeg" type="image/x-icon">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+  
+  
+</head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/CharlyCheng" target="_blank">
+          <img class="img-circle img-rotate" src="/images/23114798.jpeg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">流浪的先知</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer &amp; Designer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Beijing, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/CharlyCheng" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://github.com/CharlyCheng" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://github.com/CharlyCheng" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://github.com/CharlyCheng" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!QQ:943514986</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端学习/">前端学习</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术杂记/">技术杂记</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法、数据/">算法、数据</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/">Node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Promise/">Promise</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/">Webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/移动端自适应/">移动端自适应</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Node/" style="font-size: 13px;">Node</a> <a href="/tags/Promise/" style="font-size: 14px;">Promise</a> <a href="/tags/Webpack/" style="font-size: 13px;">Webpack</a> <a href="/tags/leetcode/" style="font-size: 14px;">leetcode</a> <a href="/tags/移动端自适应/" style="font-size: 13px;">移动端自适应</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/前端学习/">前端学习</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/03/13/webpackDLL/" class="title">Webpack DllPlugin 让构建速度柔顺丝滑</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-03-13T03:30:49.116Z" itemprop="datePublished">2019-03-13</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/算法、数据/">算法、数据</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/03/11/leetCode.1/" class="title">leetcode 两数之和/两数相加</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-03-11T08:28:34.445Z" itemprop="datePublished">2019-03-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/算法、数据/">算法、数据</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/03/11/leetCode/" class="title">leetcode 无重复字符的最长子串</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-03-11T07:24:38.612Z" itemprop="datePublished">2019-03-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/技术杂记/">技术杂记</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/12/10/node图片合成你可以做到/" class="title">node 实现图片合成</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-12-10T08:24:47.007Z" itemprop="datePublished">2018-12-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/前端学习/">前端学习</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/11/30/await/" class="title">一起来学async/await</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-11-30T08:08:54.629Z" itemprop="datePublished">2018-11-30</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#摘要"><span class="toc-number">2.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码地址"><span class="toc-number">3.</span> <span class="toc-text">代码地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#项目目录"><span class="toc-number">4.</span> <span class="toc-text">项目目录</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#下面开始DLL之旅"><span class="toc-number">4.1.</span> <span class="toc-text">下面开始DLL之旅</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#一-build目录下创建webpack-dll-conf-js-DLLPlugin"><span class="toc-number">4.2.</span> <span class="toc-text">一.build目录下创建webpack.dll.conf.js(DLLPlugin)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二-创建webpack-base-conf-js-使用-DllReferencePlugin"><span class="toc-number">4.3.</span> <span class="toc-text">二. 创建webpack.base.conf.js 使用 DllReferencePlugin</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、在-index-html-文件中引入动态链接库"><span class="toc-number">4.4.</span> <span class="toc-text">三、在 index.html 文件中引入动态链接库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装大同小异"><span class="toc-number">4.5.</span> <span class="toc-text">安装大同小异</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用也有相似的地方"><span class="toc-number">4.6.</span> <span class="toc-text">使用也有相似的地方</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#两者区别"><span class="toc-number">4.7.</span> <span class="toc-text">两者区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#index-html"><span class="toc-number">4.8.</span> <span class="toc-text">index.html</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#运行项目"><span class="toc-number">4.9.</span> <span class="toc-text">运行项目</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#相关文档"><span class="toc-number">5.</span> <span class="toc-text">相关文档</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-webpackDLL" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Webpack DllPlugin 让构建速度柔顺丝滑
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2019/03/13/webpackDLL/" class="article-date">
+	  <time datetime="2019-03-13T03:30:49.116Z" itemprop="datePublished">2019-03-13</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/前端学习/">前端学习</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/Webpack/">Webpack</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/03/13/webpackDLL/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>DLLPlugin 和 DLLReferencePlugin 用某种方法实现了拆分 bundles，同时还大大提升了构建的速度,将包含大量复用模块且不会频繁更新的库进行编译，只需要编译一次，编译完成后存在指定的文件中。在之后的构建过程中不会再对这些模块进行编译，而是直接使用 DllReferencePlugin 来引用动态链接库的代码。一般会对常用的第三方模块使用这种方式，例如 react、react-dom、lodash 等。只要这些模块不升级更新，这些动态链接库就不需要重新编译。</p>
+<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>本文介绍了 Webpack 中 DllPlugin 插件的使用，以及配合使用 AddAssetHtmlPlugin 或者 HtmlWebpackIncludeAssetsPlugin 将构建好的 JS 文件插入到 html页面中</p>
+<h3 id="代码地址"><a href="#代码地址" class="headerlink" title="代码地址"></a>代码地址</h3><p>github: <a href="https://github.com/CharlyCheng/my_react" target="_blank" rel="noopener">源码</a><br><br>欢迎交流，Star！</p>
+<h3 id="项目目录"><a href="#项目目录" class="headerlink" title="项目目录"></a>项目目录</h3><p>常规webpack项目，搭建过程本文章不在描述<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">myreact</span><br><span class="line">|- /build</span><br><span class="line">  |- webpack.config.js</span><br><span class="line">  |- webpack.dll.conf.js</span><br><span class="line">|- /dist</span><br><span class="line">  |- dll</span><br><span class="line">  |- js</span><br><span class="line">|- /src</span><br><span class="line">  |- index.js</span><br><span class="line">|- package.json</span><br><span class="line">|- index.html</span><br></pre></td></tr></table></figure></p>
+<p>具体项目结构，请看下图</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/3/13/16974c2df5338d5e?w=1572&amp;h=1872&amp;f=jpeg&amp;s=175757" alt=""></p>
+<h4 id="下面开始DLL之旅"><a href="#下面开始DLL之旅" class="headerlink" title="下面开始DLL之旅"></a>下面开始DLL之旅</h4><h4 id="一-build目录下创建webpack-dll-conf-js-DLLPlugin"><a href="#一-build目录下创建webpack-dll-conf-js-DLLPlugin" class="headerlink" title="一.build目录下创建webpack.dll.conf.js(DLLPlugin)"></a>一.build目录下创建webpack.dll.conf.js(DLLPlugin)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">const webpack = require(&quot;webpack&quot;)</span><br><span class="line">const path = require(&apos;path&apos;)</span><br><span class="line">const CleanWebpaclPlugin = require(&apos;clean-webpack-plugin&apos;);</span><br><span class="line">const resolve = (dir) =&gt; path.join(__dirname, &apos;..&apos;, dir);</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">  entry: &#123;</span><br><span class="line">    # 将 react、lodash等模块作为入口编译成动态链接库</span><br><span class="line">    vendor: [&apos;react&apos;, &apos;react-dom&apos;, &apos;react-router-dom&apos;, &apos;lodash&apos;]</span><br><span class="line">  &#125;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    # 指定生成文件所在目录文件夹，</span><br><span class="line">    # 将它们存放在了 src 文件夹下</span><br><span class="line">    path: resolve(&apos;public&apos;),</span><br><span class="line">    # 指定文件名</span><br><span class="line">    library: &apos;_dll_[name]&apos;,</span><br><span class="line">    # 存放动态链接库的全局变量名称，例如对应 lodash 来说就是 lodash_dll_lib</span><br><span class="line">    # 这个名称需要与 DllPlugin 插件中的 name 属性值对应起来</span><br><span class="line">    filename: &apos;dll/_dll_[name].[hash].js&apos;</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    new CleanWebpaclPlugin([&apos;dll&apos;], &#123;</span><br><span class="line">        root: resolve(&apos;public&apos;)</span><br><span class="line">    &#125;),</span><br><span class="line">    new webpack.DllPlugin(&#123;</span><br><span class="line">      name: &apos;_dll_[name]&apos;,</span><br><span class="line">    # 和output.library中一致，值就是输出的manifest.json中的 name值</span><br><span class="line">      path: path.join(__dirname, &apos;../public/dll&apos;, &apos;[name].manifest.json&apos;)</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="二-创建webpack-base-conf-js-使用-DllReferencePlugin"><a href="#二-创建webpack-base-conf-js-使用-DllReferencePlugin" class="headerlink" title="二. 创建webpack.base.conf.js 使用 DllReferencePlugin"></a>二. 创建webpack.base.conf.js 使用 DllReferencePlugin</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&apos;path&apos;);</span><br><span class="line">const webpack = require(&apos;webpack&apos;);</span><br><span class="line">const HTMLWebpackPlugin = require(&apos;html-webpack-plugin&apos;);</span><br><span class="line">const CleanWebpaclPlugin = require(&apos;clean-webpack-plugin&apos;);</span><br><span class="line">const resolve = (dir) =&gt; path.join(__dirname, &apos;..&apos;, dir);</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">    entry: &apos;./src/index.js&apos;,</span><br><span class="line">    output: &#123;</span><br><span class="line">        path: resolve(&apos;dist&apos;),</span><br><span class="line">        filename: &apos;js/[name].[hash].js&apos;,</span><br><span class="line">        library: &apos;_dll_[name]&apos;</span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        # 需添加root 否则无法删除，exclude未生效</span><br><span class="line">        new CleanWebpackPlugin([&apos;dist&apos;], &#123;</span><br><span class="line">          root: path.join(__dirname, &apos;..&apos;)</span><br><span class="line">        &#125;),</span><br><span class="line">        new HTMLWebpackPlugin(&#123;</span><br><span class="line">            title: &apos;Webpak DllPlugin 的使用&apos;,</span><br><span class="line">            template: resolve(&apos;index.html&apos;),</span><br><span class="line">            filename: &apos;index.html&apos;</span><br><span class="line">        &#125;),</span><br><span class="line">        new webpack.DefinePlugin(&#123;</span><br><span class="line">            &apos;process.env.NODE_ENV&apos;: JSON.stringify(&apos;production&apos;)</span><br><span class="line">        &#125;),</span><br><span class="line">        # 告诉 Webpack 使用动态链接库</span><br><span class="line">        new webpack.DllReferencePlugin(&#123;</span><br><span class="line">            // 描述 lodash 动态链接库的文件内容</span><br><span class="line">            manifest: require(../public/dll/vendor.manifest&apos;)</span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="三、在-index-html-文件中引入动态链接库"><a href="#三、在-index-html-文件中引入动态链接库" class="headerlink" title="三、在 index.html 文件中引入动态链接库"></a>三、在 index.html 文件中引入动态链接库</h4><p>由于动态链接库我们一般只编译一次，除非依赖的三方库更新，之后就不用编译，因此入口的 index.js 文件中不包含这些模块，所以要在 index.html 中单独引入。<br></p>
+<blockquote>
+<p>两种方案</p>
+<ol>
+<li>手动添加script，手动copy打包好的dll文件夹到dist，麻烦反复，很不爽</li>
+<li>使用add-asset-html-webpack-plugin或者html-webpack-include-assets-plugin插入到html中，简单自动化，美滋滋</li>
+</ol>
+</blockquote>
+<p>所以我们肯定会采用第二种方式，下面着重讲下add-asset-html-webpack-plugin与html-webpack-include-assets-plugin插件的使用，项目中使用add-asset-html-webpack-plugin</p>
+<h4 id="安装大同小异"><a href="#安装大同小异" class="headerlink" title="安装大同小异"></a>安装大同小异</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install add-asset-html-webpack-plugin -D</span><br><span class="line">npm install html-webpack-include-assets-plugin -D</span><br></pre></td></tr></table></figure>
+<h4 id="使用也有相似的地方"><a href="#使用也有相似的地方" class="headerlink" title="使用也有相似的地方"></a>使用也有相似的地方</h4><p>webpack.base.conf.js 文件中进行使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># add-asset-html-webpack-plugin</span><br><span class="line">...;</span><br><span class="line">const AddAssetHtmlPlugin = require(&apos;add-asset-html-webpack-plugin&apos;);</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">    ...,</span><br><span class="line">    plugins: [</span><br><span class="line">        ...,</span><br><span class="line">        # 给定的 JS 或 CSS 文件添加到 webpack 配置的文件中，并将其放入资源列表 html webpack插件注入到生成的 html 中。</span><br><span class="line">        new AddAssetHtmlPlugin([</span><br><span class="line">            &#123;</span><br><span class="line">                # 要添加到编译中的文件的绝对路径</span><br><span class="line">                filepath: path.resolve(__dirname,&apos;../public/dll/_dll_vendor.js&apos;),</span><br><span class="line">                outputPath: &apos;dll&apos;,</span><br><span class="line">                publicPath: &apos;dll&apos;,</span><br><span class="line">                includeSourcemap: false</span><br><span class="line">            &#125;</span><br><span class="line">        ])</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># html-webpack-include-assets-plugin</span><br><span class="line">...;</span><br><span class="line">const HtmlWebpackIncludeAssetsPlugin = require(&apos;html-webpack-include-assets-plugin&apos;);</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">    ...,</span><br><span class="line">    plugins: [</span><br><span class="line">        ...,</span><br><span class="line">        # 给定的 JS 或 CSS 文件添加到 webpack 配置的文件中，并将其放入资源列表 html webpack插件注入到生成的 html 中。</span><br><span class="line">        new HtmlWebpackIncludeAssetsPlugin([</span><br><span class="line">            &#123;</span><br><span class="line">                assets: [&apos;dll/_dll_vendor.js&apos;],</span><br><span class="line">                append: false</span><br><span class="line">            &#125;</span><br><span class="line">        ])</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="两者区别"><a href="#两者区别" class="headerlink" title="两者区别"></a>两者区别</h4><p><img src="https://user-gold-cdn.xitu.io/2019/3/13/1697508a640298b7?w=2804&amp;h=1608&amp;f=jpeg&amp;s=457919" alt=""></p>
+<h4 id="index-html"><a href="#index-html" class="headerlink" title="index.html"></a>index.html</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">        &lt;title&gt;爱你的一只猫哈哈哈1111&lt;/title&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;div id=&apos;root&apos;&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;dll/_dll_vendor.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;/js/runtime.830efec54753fd6ed91b.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;/js/vendors.830efec54753fd6ed91b.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;/js/app.830efec54753fd6ed91b.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run build</span><br></pre></td></tr></table></figure>
+<p>查看dist文件下的文件</p>
+<h3 id="相关文档"><a href="#相关文档" class="headerlink" title="相关文档"></a>相关文档</h3><p><a href="https://user-gold-cdn.xitu.io/2019/3/13/169750dd30d3b54c" target="_blank" rel="noopener">webpack 中文</a></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://yoursite.com/2019/03/13/webpackDLL/" title="Webpack DllPlugin 让构建速度柔顺丝滑" target="_blank" rel="external">http://yoursite.com/2019/03/13/webpackDLL/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/CharlyCheng" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/23114798.jpeg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/CharlyCheng" target="_blank"><span class="text-dark">流浪的先知</span><small class="ml-1x">Web Developer &amp; Designer</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2019/03/11/leetCode.1/" title="leetcode 两数之和/两数相加"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/CharlyCheng" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://github.com/CharlyCheng" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://github.com/CharlyCheng" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://github.com/CharlyCheng" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
