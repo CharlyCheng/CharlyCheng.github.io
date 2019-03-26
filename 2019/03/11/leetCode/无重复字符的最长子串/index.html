@@ -22,16 +22,16 @@
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode 无重复字符的最长子串">
-<meta property="og:url" content="http://yoursite.com/2019/03/11/leetCode/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/03/11/leetCode/无重复字符的最长子串/index.html">
 <meta property="og:site_name" content="CharlyCheng&#39;s Blog">
 <meta property="og:description" content="概要定义两个变量res和left，其中res用来记录最长无重复子串的长度，lefts指向该无重复子串左边的起始位置，然后我们遍历整个字符串，对于每一个遍历到的字符，如果哈希表中该字符串对应的值为0，说明没有遇到过该字符，则此时计算最长无重复子串，i - left +１，其中ｉ是最长无重复子串最右边的位置，left是最左边的位置，还有一种情况也需要计算最长无重复子串，就是当哈希表中的值小于left，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-11T08:28:28.615Z">
+<meta property="og:updated_time" content="2019-03-26T05:56:20.133Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode 无重复字符的最长子串">
 <meta name="twitter:description" content="概要定义两个变量res和left，其中res用来记录最长无重复子串的长度，lefts指向该无重复子串左边的起始位置，然后我们遍历整个字符串，对于每一个遍历到的字符，如果哈希表中该字符串对应的值为0，说明没有遇到过该字符，则此时计算最长无重复子串，i - left +１，其中ｉ是最长无重复子串最右边的位置，left是最左边的位置，还有一种情况也需要计算最长无重复子串，就是当哈希表中的值小于left，">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/2019/03/11/leetCode/index.html">
+  <link rel="canonical" href="http://yoursite.com/2019/03/11/leetCode/无重复字符的最长子串/index.html">
   
     <link rel="alternate" href="/atom.xml" title="CharlyCheng&#39;s Blog" type="application/atom+xml">
   
@@ -142,7 +142,7 @@
             
             <i class="icon icon-project"></i>
             
-            <span class="menu-title">项目</span>
+            <span class="menu-title">Github项目</span>
           </a>
         </li>
         
@@ -172,7 +172,7 @@
             
             <i class="icon icon-cup-fill"></i>
             
-            <span class="menu-title">关于</span>
+            <span class="menu-title">关于我</span>
           </a>
         </li>
         
@@ -204,7 +204,7 @@
     <div class="widget-body">
         <div id="board">
             <div class="content">
-                <p>欢迎交流与分享经验!QQ:943514986</p>
+                <p>欢迎各位交流与分享!QQ:943514986</p>
             </div>
         </div>
     </div>
@@ -293,7 +293,7 @@
                 <a class="category-link" href="/categories/算法、数据/">算法、数据</a>
               </p>
               <p class="item-title">
-                <a href="/2019/03/11/leetCode.1/" class="title">浅出Vue errorHandler、errorCaptured 错误处理</a>
+                <a href="/2019/03/11/leetCode/两数相加和两数之和/" class="title">leetcode 两数之和/两数相加</a>
               </p>
               <p class="item-date">
                 <time datetime="2019-03-11T08:28:34.445Z" itemprop="datePublished">2019-03-11</time>
@@ -308,7 +308,7 @@
                 <a class="category-link" href="/categories/算法、数据/">算法、数据</a>
               </p>
               <p class="item-title">
-                <a href="/2019/03/11/leetCode/" class="title">leetcode 无重复字符的最长子串</a>
+                <a href="/2019/03/11/leetCode/无重复字符的最长子串/" class="title">leetcode 无重复字符的最长子串</a>
               </p>
               <p class="item-date">
                 <time datetime="2019-03-11T07:24:38.612Z" itemprop="datePublished">2019-03-11</time>
@@ -353,7 +353,7 @@
 
 <main class="main" role="main">
   <div class="content">
-  <article id="post-leetCode" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-leetCode/无重复字符的最长子串" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
@@ -368,7 +368,7 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2019/03/11/leetCode/" class="article-date">
+	<a href="/2019/03/11/leetCode/无重复字符的最长子串/" class="article-date">
 	  <time datetime="2019-03-11T07:24:38.612Z" itemprop="datePublished">2019-03-11</time>
 	</a>
 </span>
@@ -387,7 +387,7 @@
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/03/11/leetCode/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/03/11/leetCode/无重复字符的最长子串/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
@@ -412,7 +412,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://yoursite.com/2019/03/11/leetCode/" title="leetcode 无重复字符的最长子串" target="_blank" rel="external">http://yoursite.com/2019/03/11/leetCode/</a>
+      <a href="http://yoursite.com/2019/03/11/leetCode/无重复字符的最长子串/" title="leetcode 无重复字符的最长子串" target="_blank" rel="external">http://yoursite.com/2019/03/11/leetCode/无重复字符的最长子串/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -459,7 +459,7 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2019/03/11/leetCode.1/" title="浅出Vue errorHandler、errorCaptured 错误处理"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2019/03/11/leetCode/两数相加和两数之和/" title="leetcode 两数之和/两数相加"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
