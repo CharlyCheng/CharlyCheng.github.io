@@ -17,21 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>leetcode 无重复字符的最长子串 | CharlyCheng&#39;s Blog</title>
-  <meta name="description" content="概要定义两个变量res和left，其中res用来记录最长无重复子串的长度，lefts指向该无重复子串左边的起始位置，然后我们遍历整个字符串，对于每一个遍历到的字符，如果哈希表中该字符串对应的值为0，说明没有遇到过该字符，则此时计算最长无重复子串，i - left +１，其中ｉ是最长无重复子串最右边的位置，left是最左边的位置，还有一种情况也需要计算最长无重复子串，就是当哈希表中的值小于left，">
-<meta name="keywords" content="leetcode">
+  <title>每日一算 -- 求众数 | CharlyCheng&#39;s Blog</title>
+  <meta name="description" content="题目给定一个大小为 n 的数组，找到其中的众数。众数是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。你可以假设数组是非空的，并且给定的数组总是存在众数。  示例12输入: [3,2,3]输出: 3   示例12输入: [2,2,1,1,1,2,2]输出: 2  日常找规律瞬间想到的解法可能就是：  利用对象进行存储出现的次数，很棒 不太容易想到的就是摩尔投票法跟前后PK  实现方式hashMap">
+<meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode 无重复字符的最长子串">
-<meta property="og:url" content="http://yoursite.com/2019/03/11/leetCode/无重复字符的最长子串/index.html">
+<meta property="og:title" content="每日一算 -- 求众数">
+<meta property="og:url" content="http://yoursite.com/2019/04/11/每日一算 -- 求众数/index.html">
 <meta property="og:site_name" content="CharlyCheng&#39;s Blog">
-<meta property="og:description" content="概要定义两个变量res和left，其中res用来记录最长无重复子串的长度，lefts指向该无重复子串左边的起始位置，然后我们遍历整个字符串，对于每一个遍历到的字符，如果哈希表中该字符串对应的值为0，说明没有遇到过该字符，则此时计算最长无重复子串，i - left +１，其中ｉ是最长无重复子串最右边的位置，left是最左边的位置，还有一种情况也需要计算最长无重复子串，就是当哈希表中的值小于left，">
+<meta property="og:description" content="题目给定一个大小为 n 的数组，找到其中的众数。众数是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。你可以假设数组是非空的，并且给定的数组总是存在众数。  示例12输入: [3,2,3]输出: 3   示例12输入: [2,2,1,1,1,2,2]输出: 2  日常找规律瞬间想到的解法可能就是：  利用对象进行存储出现的次数，很棒 不太容易想到的就是摩尔投票法跟前后PK  实现方式hashMap">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-26T05:56:20.133Z">
+<meta property="og:updated_time" content="2019-04-11T01:28:11.982Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="leetcode 无重复字符的最长子串">
-<meta name="twitter:description" content="概要定义两个变量res和left，其中res用来记录最长无重复子串的长度，lefts指向该无重复子串左边的起始位置，然后我们遍历整个字符串，对于每一个遍历到的字符，如果哈希表中该字符串对应的值为0，说明没有遇到过该字符，则此时计算最长无重复子串，i - left +１，其中ｉ是最长无重复子串最右边的位置，left是最左边的位置，还有一种情况也需要计算最长无重复子串，就是当哈希表中的值小于left，">
+<meta name="twitter:title" content="每日一算 -- 求众数">
+<meta name="twitter:description" content="题目给定一个大小为 n 的数组，找到其中的众数。众数是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。你可以假设数组是非空的，并且给定的数组总是存在众数。  示例12输入: [3,2,3]输出: 3   示例12输入: [2,2,1,1,1,2,2]输出: 2  日常找规律瞬间想到的解法可能就是：  利用对象进行存储出现的次数，很棒 不太容易想到的就是摩尔投票法跟前后PK  实现方式hashMap">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/2019/03/11/leetCode/无重复字符的最长子串/index.html">
+  <link rel="canonical" href="http://yoursite.com/2019/04/11/每日一算 -- 求众数/index.html">
   
     <link rel="alternate" href="/atom.xml" title="CharlyCheng&#39;s Blog" type="application/atom+xml">
   
@@ -346,21 +346,21 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#概要"><span class="toc-number">1.</span> <span class="toc-text">概要</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#无重复字符的最长子串"><span class="toc-number">2.</span> <span class="toc-text">无重复字符的最长子串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解法一"><span class="toc-number">3.</span> <span class="toc-text">解法一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解法二"><span class="toc-number">4.</span> <span class="toc-text">解法二</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解法三"><span class="toc-number">5.</span> <span class="toc-text">解法三</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#两个排序数组的中位数"><span class="toc-number">6.</span> <span class="toc-text">两个排序数组的中位数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解题思路"><span class="toc-number">7.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解法一-1"><span class="toc-number">8.</span> <span class="toc-text">解法一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解法二-1"><span class="toc-number">9.</span> <span class="toc-text">解法二</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#日常找规律"><span class="toc-number">2.</span> <span class="toc-text">日常找规律</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现方式"><span class="toc-number">3.</span> <span class="toc-text">实现方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#hashMap实现"><span class="toc-number">3.1.</span> <span class="toc-text">hashMap实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#摩尔投票法"><span class="toc-number">3.2.</span> <span class="toc-text">摩尔投票法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前后PK法"><span class="toc-number">3.3.</span> <span class="toc-text">前后PK法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
     </nav>
   </div>
 </aside>
 
 <main class="main" role="main">
   <div class="content">
-  <article id="post-leetCode/无重复字符的最长子串" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-每日一算 -- 求众数" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      leetcode 无重复字符的最长子串
+      每日一算 -- 求众数
     </h1>
   
 
@@ -368,41 +368,59 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2019/03/11/leetCode/无重复字符的最长子串/" class="article-date">
-	  <time datetime="2019-03-11T07:24:38.612Z" itemprop="datePublished">2019-03-11</time>
+	<a href="/2019/04/11/每日一算 -- 求众数/" class="article-date">
+	  <time datetime="2019-04-11T01:27:23.568Z" itemprop="datePublished">2019-04-11</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/算法、数据/">算法、数据</a>
+    <a class="article-category-link" href="/categories/前端学习/">前端学习</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/leetcode/">leetcode</a>
+	<a class="article-tag-link" href="/tags/算法/">算法</a>
   </span>
 
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/03/11/leetCode/无重复字符的最长子串/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/04/11/每日一算 -- 求众数/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h3><p>定义两个变量res和left，其中res用来记录最长无重复子串的长度，lefts指向该无重复子串左边的起始位置，然后我们遍历整个字符串，对于每一个遍历到的字符，如果哈希表中该字符串对应的值为0，说明没有遇到过该字符，则此时计算最长无重复子串，i - left +１，其中ｉ是最长无重复子串最右边的位置，left是最左边的位置，还有一种情况也需要计算最长无重复子串，就是当哈希表中的值小于left，这是由于此时出现过重复的字符，left的位置更新了，如果又遇到了新的字符，就要重新计算最长无重复子串。最后每次都要在哈希表中将当前字符对应的值赋值为i+1</p>
-<h3 id="无重复字符的最长子串"><a href="#无重复字符的最长子串" class="headerlink" title="无重复字符的最长子串"></a>无重复字符的最长子串</h3><p>给定一个字符串，找出不含有重复字符的最长子串的长度。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">给定 &quot;abcabcbb&quot; ，没有重复字符的最长子串是 &quot;abc&quot; ，那么长度就是3。</span><br><span class="line"></span><br><span class="line">给定 &quot;bbbbb&quot; ，最长的子串就是 &quot;b&quot; ，长度是1。</span><br><span class="line"></span><br><span class="line">给定 &quot;pwwkew&quot; ，最长子串是 &quot;wke&quot; ，长度是3。请注意答案必须是一个子串，&quot;pwke&quot; 是 子序列  而不是子串。</span><br></pre></td></tr></table></figure></p>
-<h3 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @param &#123;string&#125; s</span><br><span class="line"> * @return &#123;number&#125;</span><br><span class="line"> */</span><br><span class="line"> var lengthOfLongestSubstring = function(s) &#123;</span><br><span class="line">     let hash = &#123;&#125;</span><br><span class="line">     let start = 0</span><br><span class="line">     let ans = 0</span><br><span class="line"></span><br><span class="line">     for (var i = 0; i &lt; s.length; i++)&#123;</span><br><span class="line">         let item = s[i]</span><br><span class="line">         if (!hash[item]) &#123;</span><br><span class="line">             hash[item] = true</span><br><span class="line">         &#125; else &#123;</span><br><span class="line">             for (;;) &#123;</span><br><span class="line">                  if (s[start] === item) &#123;</span><br><span class="line">                     start++;</span><br><span class="line">                     break;</span><br><span class="line">                 &#125;</span><br><span class="line">                 hash[s[start]] = false</span><br><span class="line">                 start++</span><br><span class="line">             &#125;</span><br><span class="line"></span><br><span class="line">         &#125;</span><br><span class="line">         ans = Math.max(ans, i - start + 1)</span><br><span class="line">     &#125;</span><br><span class="line">     return ans</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var lengthOfLongestSubstring = function(s) &#123;</span><br><span class="line">    var res = 0</span><br><span class="line">    var left = -1</span><br><span class="line">    var m = []</span><br><span class="line">    m.fill(-1)</span><br><span class="line">    for (var i = 0; i &lt; s.length; i++) &#123;</span><br><span class="line">        left  = Math.max(left, m[s.charAt(i)])</span><br><span class="line">        m[s.charAt[i]] = i</span><br><span class="line">        res = Math.max(res, i - left)</span><br><span class="line">    &#125;</span><br><span class="line">    return res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="解法三"><a href="#解法三" class="headerlink" title="解法三"></a>解法三</h3><p>下面这种解法使用了set，核心算法和上面的很类似，把出现过的字符都放入set中，遇到set中没有的字符就加入set中并更新结果res，如果遇到重复的，则从左边开始删字符，直到删到重复的字符停止：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var lengthOfLongestSubstring = function(s) &#123;</span><br><span class="line">    var res = 0</span><br><span class="line">    var left = 0</span><br><span class="line">    var right = 0</span><br><span class="line">    var t = new Set()</span><br><span class="line">    while (right &lt; s.length)&#123;</span><br><span class="line">        if (!t.has(s.charAt(right))) &#123;</span><br><span class="line">            t.add(s.charAt(right++))</span><br><span class="line">            res = Math.max(res, t.size)</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            t.delete(s.charAt(left++))</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="两个排序数组的中位数"><a href="#两个排序数组的中位数" class="headerlink" title="两个排序数组的中位数"></a>两个排序数组的中位数</h3><p>给定两个大小为 m 和 n 的有序数组 nums1 和 nums2 。<br>请找出这两个有序数组的中位数。要求算法的时间复杂度为 O(log (m+n))<br>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nums1 = [1, 3]</span><br><span class="line">nums2 = [2]</span><br><span class="line"></span><br><span class="line">中位数是 2.0</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nums1 = [1, 2]</span><br><span class="line">nums2 = [3, 4]</span><br><span class="line">中位数是 (2 + 3)/2 = 2.5</span><br></pre></td></tr></table></figure>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>这道题让我们求两个有序数组的中位数，而且限制了时间复杂度为O(log (m+n))，看到这个时间复杂度，自然而然的想到了应该使用二分查找法来求解。但是这道题被定义为Hard也是有其原因的，难就难在要在两个未合并的有序数组之间使用二分法，这里我们需要定义一个函数来找到第K个元素，由于两个数组长度之和的奇偶不确定，因此需要分情况来讨论，对于奇数的情况，直接找到最中间的数即可，偶数的话需要求最中间两个数的平均值。下面重点来看如何实现找到第K个元素，首先我们需要让数组1的长度小于或等于数组2的长度，那么我们只需判断如果数组1的长度大于数组2的长度的话，交换两个数组即可，然后我们要判断小的数组是否为空，为空的话，直接在另一个数组找第K个即可。还有一种情况是当K = 1时，表示我们要找第一个元素，只要比较两个数组的第一个元素，返回较小的那个即可。</p>
-<h3 id="解法一-1"><a href="#解法一-1" class="headerlink" title="解法一"></a>解法一</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var findMedianSortedArrays = function(nums1, nums2) &#123;</span><br><span class="line">  var s = nums1.concat(nums2);</span><br><span class="line">  s.sort(function(a, b) &#123;</span><br><span class="line">    return a - b;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  var len = s.length;</span><br><span class="line">  if (len &amp; 1) return s[~~(len / 2)];</span><br><span class="line">  else return (s[len / 2 - 1] + s[len / 2]) / 2;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="解法二-1"><a href="#解法二-1" class="headerlink" title="解法二"></a>解法二</h3><p>此题还能用二分搜索法来解，是一种相当巧妙的应用，讲解在这个帖子中写的十分清楚，等有时间我再来写写分析过程：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">var findMedianSortedArrays = function(nums1, nums2) &#123;</span><br><span class="line">    var m = nums1.length;</span><br><span class="line">    var n = nums2.length;</span><br><span class="line">    if (m &lt; n) &#123;</span><br><span class="line">        return findMedianSortedArrays(nums2, nums1)</span><br><span class="line">    &#125;</span><br><span class="line">    if (n == 0) &#123;</span><br><span class="line">        return (nums1[(m - 1) / 2] + nums1[m / 2]) / 2.0</span><br><span class="line">    &#125;</span><br><span class="line">    var left = 0,</span><br><span class="line">        right = 2 * n</span><br><span class="line">    while (left &lt;= right) &#123;</span><br><span class="line">        var mid2 = (left + right) / 2;</span><br><span class="line">        var mid1 = m + n - mid2;</span><br><span class="line">        var L1 = mid1 == 0 ? 0 : nums1[(mid1 - 1) / 2];</span><br><span class="line">        var L2 = mid2 == 0 ? 0 : nums2[(mid2 - 1) / 2];</span><br><span class="line">        var R1 = mid1 == m * 2 ? 0 : nums1[mid1 / 2];</span><br><span class="line">        var R2 = mid2 == n * 2 ? 0 : nums2[mid2 / 2];</span><br><span class="line">            if (L1 &gt; R2) &#123;</span><br><span class="line">                left = mid2 + 1;</span><br><span class="line">            &#125;else if (L2 &gt; R1) &#123;</span><br><span class="line">                right = mid2 - 1;</span><br><span class="line">            &#125;else &#123;</span><br><span class="line">                return (Math.max(L1, L2) + Math.min(R1, R2)) / 2;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个大小为 n 的数组，找到其中的众数。众数是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。<br>你可以假设数组是非空的，并且给定的数组总是存在众数。</p>
+<blockquote>
+<p>示例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [3,2,3]</span><br><span class="line">输出: 3</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>示例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [2,2,1,1,1,2,2]</span><br><span class="line">输出: 2</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="日常找规律"><a href="#日常找规律" class="headerlink" title="日常找规律"></a>日常找规律</h2><p>瞬间想到的解法可能就是：</p>
+<ul>
+<li>利用对象进行存储出现的次数，很棒</li>
+<li>不太容易想到的就是摩尔投票法跟前后PK</li>
+</ul>
+<h2 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h2><h3 id="hashMap实现"><a href="#hashMap实现" class="headerlink" title="hashMap实现"></a>hashMap实现</h3><ul>
+<li>时间复杂度 O(n)</li>
+<li>空间复杂度 O(n)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function majorityElement(arr) &#123;</span><br><span class="line">  const hash = &#123;&#125;</span><br><span class="line">  const half = Math.ceil(arr.length / 2)</span><br><span class="line">  for (let i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">    if (!hash[arr[i]]) &#123;</span><br><span class="line">      hash[arr[i]] = 0</span><br><span class="line">    &#125;</span><br><span class="line">    hash[arr[i]]++</span><br><span class="line">    if ( hash[arr[i]] &gt;= half) &#123;</span><br><span class="line">      return arr[i]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="摩尔投票法"><a href="#摩尔投票法" class="headerlink" title="摩尔投票法"></a>摩尔投票法</h3><p>时间复杂度 O(n)<br>空间复杂度 O(1)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function majorityElement(arr) &#123;</span><br><span class="line">  let count = 0</span><br><span class="line">  let majority = 0</span><br><span class="line">  for (let i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">    if ( count === 0 ) &#123;</span><br><span class="line">      count++</span><br><span class="line">      majority = arr[i]</span><br><span class="line">    &#125; else if (majority == arr[i])&#123;</span><br><span class="line">      count++</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      count--</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return majority  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="前后PK法"><a href="#前后PK法" class="headerlink" title="前后PK法"></a>前后PK法</h3><ul>
+<li>原理,取数组前后的一个数进行PK，只要不相等就删除，这样一对一PK后，剩余的的那个数就一定是众数</li>
+<li>时间复杂度 O(n/2)</li>
+<li>空间复杂度 O(1)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">function majorityElement(arr) &#123;</span><br><span class="line">  let i = 0</span><br><span class="line">  let j = arr.length - 1</span><br><span class="line">  let count = 0</span><br><span class="line">  for (;i &lt; j;) &#123;</span><br><span class="line">    if ( arr[i] === arr[j]) &#123;</span><br><span class="line">      i++</span><br><span class="line">      count++</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      if (count &gt; 0) &#123;</span><br><span class="line">        i++</span><br><span class="line">        count--</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        i++</span><br><span class="line">        j--</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return arr[i]  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li><a href="http://www.cnblogs.com/grandyang/p/4233501.html" target="_blank" rel="noopener">求众数</a></li>
+<li><a href="https://leetcode.com/problems/majority-element/discuss/51613/O(n" target="_blank" rel="noopener">https://leetcode.com/problems/majority-element/discuss/51613/O(n)-time-O(1)-space-fastest-solution</a>-time-O(1)-space-fastest-solution)</li>
+</ul>
 
       
     </div>
@@ -412,7 +430,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://yoursite.com/2019/03/11/leetCode/无重复字符的最长子串/" title="leetcode 无重复字符的最长子串" target="_blank" rel="external">http://yoursite.com/2019/03/11/leetCode/无重复字符的最长子串/</a>
+      <a href="http://yoursite.com/2019/04/11/每日一算 -- 求众数/" title="每日一算 -- 求众数" target="_blank" rel="external">http://yoursite.com/2019/04/11/每日一算 -- 求众数/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -459,12 +477,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2019/03/11/leetCode/两数相加和两数之和/" title="leetcode 两数之和/两数相加"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2019/04/11/每日一算 -- 只出现一次的数字/" title="每日一算 -- 只出现一次的数字"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2018/12/10/node图片合成你可以做到/" title="node 实现图片合成"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2019/04/09/每日一算 -- 斐波那契数列类型题/" title="每日一算 -- 斐波那契数列类型题"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
